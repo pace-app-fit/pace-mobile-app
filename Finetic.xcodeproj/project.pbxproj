@@ -1,0 +1,511 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A175BA825E476E20015062D /* FineticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A175BA725E476E20015062D /* FineticApp.swift */; };
+		4A175BAA25E476E20015062D /* RunsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A175BA925E476E20015062D /* RunsView.swift */; };
+		4A175BAC25E476EA0015062D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A175BAB25E476EA0015062D /* Assets.xcassets */; };
+		4A175BAF25E476EA0015062D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A175BAE25E476EA0015062D /* Preview Assets.xcassets */; };
+		4A175BBE25E478010015062D /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A175BBD25E478010015062D /* Run.swift */; };
+		4A25330725E9B2BD0000A90B /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25330625E9B2BD0000A90B /* AppView.swift */; };
+		4A25330B25E9B32D0000A90B /* NewTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25330A25E9B32D0000A90B /* NewTrackView.swift */; };
+		4A25330E25E9B3480000A90B /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25330D25E9B3480000A90B /* DashboardView.swift */; };
+		4A25331125E9B4C50000A90B /* Finetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331025E9B4C50000A90B /* Finetic.swift */; };
+		4A25331425E9B52C0000A90B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331325E9B52C0000A90B /* AccountView.swift */; };
+		4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331925E9BA260000A90B /* RunsResponse.swift */; };
+		4A8484AB25E5398200F50FD4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8484AA25E5398200F50FD4 /* LocationManager.swift */; };
+		4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */; };
+		4A93E40125F140980054B104 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E40025F140980054B104 /* SigninView.swift */; };
+		4A93E40B25F143930054B104 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E40A25F143930054B104 /* FormField.swift */; };
+		4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E41125F148890054B104 /* ResolveApplication.swift */; };
+		4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E41525F1494E0054B104 /* SessionStore.swift */; };
+		4A93E41925F149B90054B104 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E41825F149B90054B104 /* User.swift */; };
+		4A93E42325F1A6590054B104 /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E42225F1A6590054B104 /* TracksService.swift */; };
+		FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CAABA802876850DC49133 /* Pods_Finetic.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A175BA425E476E20015062D /* Finetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A175BA725E476E20015062D /* FineticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineticApp.swift; sourceTree = "<group>"; };
+		4A175BA925E476E20015062D /* RunsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsView.swift; sourceTree = "<group>"; };
+		4A175BAB25E476EA0015062D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A175BAE25E476EA0015062D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4A175BB025E476EA0015062D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A175BBD25E478010015062D /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		4A25330625E9B2BD0000A90B /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		4A25330A25E9B32D0000A90B /* NewTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrackView.swift; sourceTree = "<group>"; };
+		4A25330D25E9B3480000A90B /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		4A25331025E9B4C50000A90B /* Finetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finetic.swift; sourceTree = "<group>"; };
+		4A25331325E9B52C0000A90B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		4A25331925E9BA260000A90B /* RunsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsResponse.swift; sourceTree = "<group>"; };
+		4A8484AA25E5398200F50FD4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegions+DefaultRegion.swift"; sourceTree = "<group>"; };
+		4A93E40025F140980054B104 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
+		4A93E40A25F143930054B104 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
+		4A93E41125F148890054B104 /* ResolveApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolveApplication.swift; sourceTree = "<group>"; };
+		4A93E41525F1494E0054B104 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		4A93E41825F149B90054B104 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4A93E42225F1A6590054B104 /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
+		934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.release.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.release.xcconfig"; sourceTree = "<group>"; };
+		98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.debug.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.debug.xcconfig"; sourceTree = "<group>"; };
+		CD7CAABA802876850DC49133 /* Pods_Finetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A175BA125E476E20015062D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4A175B9B25E476E20015062D = {
+			isa = PBXGroup;
+			children = (
+				4A175BA625E476E20015062D /* Finetic */,
+				4A175BA525E476E20015062D /* Products */,
+				9ED2647E5B09ECBA1748592A /* Pods */,
+				B117A1EA31398A6B61DD5B6F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4A175BA525E476E20015062D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A175BA425E476E20015062D /* Finetic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A175BA625E476E20015062D /* Finetic */ = {
+			isa = PBXGroup;
+			children = (
+				4A93E40925F143810054B104 /* Components */,
+				4A8484AE25E53F4600F50FD4 /* Extensions */,
+				4A8484A925E5396F00F50FD4 /* Services */,
+				4A175BB825E477CA0015062D /* Model */,
+				4A175BB725E4778D0015062D /* View */,
+				4A175BA725E476E20015062D /* FineticApp.swift */,
+				4A175BAB25E476EA0015062D /* Assets.xcassets */,
+				4A175BB025E476EA0015062D /* Info.plist */,
+				4A175BAD25E476EA0015062D /* Preview Content */,
+			);
+			path = Finetic;
+			sourceTree = "<group>";
+		};
+		4A175BAD25E476EA0015062D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4A175BAE25E476EA0015062D /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A175BB725E4778D0015062D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A93E40325F141300054B104 /* AuthViews */,
+				4A25330625E9B2BD0000A90B /* AppView.swift */,
+				4A175BA925E476E20015062D /* RunsView.swift */,
+				4A25330A25E9B32D0000A90B /* NewTrackView.swift */,
+				4A25330D25E9B3480000A90B /* DashboardView.swift */,
+				4A25331025E9B4C50000A90B /* Finetic.swift */,
+				4A25331325E9B52C0000A90B /* AccountView.swift */,
+				4A93E41125F148890054B104 /* ResolveApplication.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4A175BB825E477CA0015062D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4A175BBD25E478010015062D /* Run.swift */,
+				4A93E41825F149B90054B104 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4A8484A925E5396F00F50FD4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4A93E41525F1494E0054B104 /* SessionStore.swift */,
+				4A8484AA25E5398200F50FD4 /* LocationManager.swift */,
+				4A25331925E9BA260000A90B /* RunsResponse.swift */,
+				4A93E42225F1A6590054B104 /* TracksService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4A8484AE25E53F4600F50FD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4A93E40325F141300054B104 /* AuthViews */ = {
+			isa = PBXGroup;
+			children = (
+				4A93E40025F140980054B104 /* SigninView.swift */,
+			);
+			path = AuthViews;
+			sourceTree = "<group>";
+		};
+		4A93E40925F143810054B104 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4A93E40A25F143930054B104 /* FormField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9ED2647E5B09ECBA1748592A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */,
+				934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B117A1EA31398A6B61DD5B6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD7CAABA802876850DC49133 /* Pods_Finetic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A175BA325E476E20015062D /* Finetic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A175BB325E476EA0015062D /* Build configuration list for PBXNativeTarget "Finetic" */;
+			buildPhases = (
+				221D53CF3FD2913836633482 /* [CP] Check Pods Manifest.lock */,
+				4A175BA025E476E20015062D /* Sources */,
+				4A175BA125E476E20015062D /* Frameworks */,
+				4A175BA225E476E20015062D /* Resources */,
+				7CD826E3236EF11A8606588C /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Finetic;
+			productName = Finetic;
+			productReference = 4A175BA425E476E20015062D /* Finetic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A175B9C25E476E20015062D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					4A175BA325E476E20015062D = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 4A175B9F25E476E20015062D /* Build configuration list for PBXProject "Finetic" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A175B9B25E476E20015062D;
+			productRefGroup = 4A175BA525E476E20015062D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A175BA325E476E20015062D /* Finetic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A175BA225E476E20015062D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A175BAF25E476EA0015062D /* Preview Assets.xcassets in Resources */,
+				4A175BAC25E476EA0015062D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		221D53CF3FD2913836633482 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Finetic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CD826E3236EF11A8606588C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Finetic/Pods-Finetic-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Finetic/Pods-Finetic-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Finetic/Pods-Finetic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A175BA025E476E20015062D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A8484AB25E5398200F50FD4 /* LocationManager.swift in Sources */,
+				4A93E42325F1A6590054B104 /* TracksService.swift in Sources */,
+				4A25330E25E9B3480000A90B /* DashboardView.swift in Sources */,
+				4A93E40125F140980054B104 /* SigninView.swift in Sources */,
+				4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */,
+				4A93E41925F149B90054B104 /* User.swift in Sources */,
+				4A25330B25E9B32D0000A90B /* NewTrackView.swift in Sources */,
+				4A25331125E9B4C50000A90B /* Finetic.swift in Sources */,
+				4A93E40B25F143930054B104 /* FormField.swift in Sources */,
+				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
+				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
+				4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */,
+				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
+				4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */,
+				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
+				4A175BBE25E478010015062D /* Run.swift in Sources */,
+				4A175BA825E476E20015062D /* FineticApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4A175BB125E476EA0015062D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A175BB225E476EA0015062D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A175BB425E476EA0015062D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Finetic/Preview Content\"";
+				DEVELOPMENT_TEAM = 4WUJ6V99Q5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Finetic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tapiwakundi.Finetic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A175BB525E476EA0015062D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Finetic/Preview Content\"";
+				DEVELOPMENT_TEAM = 4WUJ6V99Q5;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Finetic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tapiwakundi.Finetic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A175B9F25E476E20015062D /* Build configuration list for PBXProject "Finetic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A175BB125E476EA0015062D /* Debug */,
+				4A175BB225E476EA0015062D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A175BB325E476EA0015062D /* Build configuration list for PBXNativeTarget "Finetic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A175BB425E476EA0015062D /* Debug */,
+				4A175BB525E476EA0015062D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A175B9C25E476E20015062D /* Project object */;
+}
