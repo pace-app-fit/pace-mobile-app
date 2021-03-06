@@ -29,6 +29,11 @@
 		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
 		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
 		4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4225F3A56C0040370C /* NewRun.swift */; };
+		4AB6FA4625F3E20B0040370C /* FitnessCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4525F3E20A0040370C /* FitnessCardView.swift */; };
+		4AB6FA4A25F3FB620040370C /* FineticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4925F3FB620040370C /* FineticService.swift */; };
+		4AB6FA5125F3FCDF0040370C /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA5025F3FCDF0040370C /* Workout.swift */; };
+		4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */; };
+		4AB6FA5F25F41C4E0040370C /* ButtonComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */; };
 		FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CAABA802876850DC49133 /* Pods_Finetic.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +62,11 @@
 		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
 		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
 		4AB6FA4225F3A56C0040370C /* NewRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRun.swift; sourceTree = "<group>"; };
+		4AB6FA4525F3E20A0040370C /* FitnessCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessCardView.swift; sourceTree = "<group>"; };
+		4AB6FA4925F3FB620040370C /* FineticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineticService.swift; sourceTree = "<group>"; };
+		4AB6FA5025F3FCDF0040370C /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsView.swift; sourceTree = "<group>"; };
+		4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComp.swift; sourceTree = "<group>"; };
 		934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.release.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.release.xcconfig"; sourceTree = "<group>"; };
 		98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.debug.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7CAABA802876850DC49133 /* Pods_Finetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +137,7 @@
 				4A25331025E9B4C50000A90B /* Finetic.swift */,
 				4A25331325E9B52C0000A90B /* AccountView.swift */,
 				4A93E41125F148890054B104 /* ResolveApplication.swift */,
+				4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +148,7 @@
 				4A175BBD25E478010015062D /* Run.swift */,
 				4A93E41825F149B90054B104 /* User.swift */,
 				4AB6FA4225F3A56C0040370C /* NewRun.swift */,
+				4AB6FA5025F3FCDF0040370C /* Workout.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 				4A25331925E9BA260000A90B /* RunsResponse.swift */,
 				4A93E42225F1A6590054B104 /* TracksService.swift */,
 				4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */,
+				4AB6FA4925F3FB620040370C /* FineticService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -174,6 +187,8 @@
 				4A93E40A25F143930054B104 /* FormField.swift */,
 				4AA87B9625F2B2BD00CC5536 /* MapView.swift */,
 				4AA87BA525F2EDF800CC5536 /* RunCard.swift */,
+				4AB6FA4525F3E20A0040370C /* FitnessCardView.swift */,
+				4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,17 +330,22 @@
 				4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */,
 				4A93E41925F149B90054B104 /* User.swift in Sources */,
 				4A25330B25E9B32D0000A90B /* NewTrackView.swift in Sources */,
+				4AB6FA5F25F41C4E0040370C /* ButtonComp.swift in Sources */,
+				4AB6FA4625F3E20B0040370C /* FitnessCardView.swift in Sources */,
+				4AB6FA4A25F3FB620040370C /* FineticService.swift in Sources */,
 				4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */,
 				4A25331125E9B4C50000A90B /* Finetic.swift in Sources */,
 				4A93E40B25F143930054B104 /* FormField.swift in Sources */,
 				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
 				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
 				4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */,
+				4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */,
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */,
 				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
+				4AB6FA5125F3FCDF0040370C /* Workout.swift in Sources */,
 				4A175BBE25E478010015062D /* Run.swift in Sources */,
 				4A175BA825E476E20015062D /* FineticApp.swift in Sources */,
 			);

@@ -14,6 +14,24 @@ struct AccountView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Details")) {
+                    HStack{
+                        Text("Name")
+                            .font(.headline)
+                        Spacer()
+                        Text(session.user?.fullName.capitalized ?? "Unknown Figure")
+                            
+                    }
+                    HStack{
+                        Text("Email")
+                            .font(.headline)
+                        Spacer()
+                        Text(session.user?.email ?? "Unknown Email")
+                            
+                    }
+                        
+                }
+                
                 Section(header: Text("Log out")) {
                     Text("Signout")
                         .onTapGesture {

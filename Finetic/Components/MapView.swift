@@ -29,6 +29,8 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
         mapView.delegate = context.coordinator
+        mapView.isZoomEnabled = false
+        mapView.isScrollEnabled = false
       
         return mapView
       }

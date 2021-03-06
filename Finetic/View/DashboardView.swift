@@ -12,9 +12,13 @@ struct DashboardView: View {
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
-        ScrollView {
-            Text("Hello \(session.user?.email ?? "unknown figure")")
+        NavigationView {
+            ScrollView {
+                
+            }
+            .navigationTitle("\(session.user?.firstName.capitalized ?? "Dashboard")")
         }
+       
         
        
     }

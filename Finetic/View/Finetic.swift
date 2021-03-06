@@ -9,16 +9,19 @@ import SwiftUI
 import AVKit
 
 struct Finetic: View {
-    let player = AVPlayer(url: URL(string: "https://res.cloudinary.com/dnmlpwow2/video/upload/v1612224779/RPReplay_Final1612222370_up45oi.mov")!)
     
-    
+    @ObservedObject var worksouts = FineticService()
     
     var body: some View {
         NavigationView {
             ScrollView {
-                
+                VStack {
+                    ForEach(worksouts.workouts!) { workout in
+                        FitnessCardView(workout: workout)
+                    }
+                }
             }
-            .navigationTitle("Aleesha's Finetic")
+            .navigationTitle("Finetic")
         }
     }
 }

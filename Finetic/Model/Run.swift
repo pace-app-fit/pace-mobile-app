@@ -16,7 +16,7 @@ struct Run: Codable, Hashable {
     }
     
     var formatedDistance: String {
-        String(round(distance))
+        String(format: "%.2f", distance)
     }
     
     var centerPoint: CLLocationCoordinate2D {

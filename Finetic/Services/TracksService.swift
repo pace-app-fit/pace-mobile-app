@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class TracksService: ObservableObject {
-    let root = "https://tasty-gecko-96.loca.lt"
+    let root = "https://orange-lionfish-80.loca.lt"
     @Published var previousRuns: [Run]?
     let token = UserDefaults.standard.string(forKey: "token")
     var headers: HTTPHeaders {
