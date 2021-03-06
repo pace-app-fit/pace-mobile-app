@@ -12,7 +12,10 @@ struct DashboardView: View {
     @EnvironmentObject var session: SessionStore
     
     var body: some View {
-        Text("Hello \(session.user?.email ?? "unknown figure")")
+        ScrollView {
+            Text("Hello \(session.user?.email ?? "unknown figure")")
+        }
+       
     }
 }
 

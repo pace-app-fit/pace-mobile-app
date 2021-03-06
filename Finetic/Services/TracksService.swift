@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class TracksService: ObservableObject {
-    let root = "https://1bcfb1cbeb0c.ngrok.io"
+    let root = "https://tasty-gecko-96.loca.lt"
     @Published var previousRuns: [Run]?
     
     func fetchTracks() {

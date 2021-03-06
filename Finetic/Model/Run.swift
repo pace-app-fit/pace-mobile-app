@@ -1,4 +1,5 @@
 import Foundation
+import MapKit
 
 // MARK: - WelcomeElement
 struct Run: Codable, Hashable {
@@ -9,6 +10,25 @@ struct Run: Codable, Hashable {
     let v: Int
     let createdAt: String
     let timestamp: String?
+    
+    var formatedTime: String {
+        String(round(time))
+    }
+    
+    var formatedDistance: String {
+        String(round(distance))
+    }
+    
+    var clCoordinates: [CLLocationCoordinate2D] {
+        get {
+            var coords = [CLLocationCoordinate2D]()
+            for i in locations {
+                coords.append(CLLocationCoordinate2D(latitude: CLLocationDegrees(i.coords.latitude), longitude: CLLocationDegrees(i.coords.longitude)))
+            }
+            
+            return coords
+        }
+    }
 
     enum CodingKeys: String, CodingKey {
         case name

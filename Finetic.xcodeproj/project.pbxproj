@@ -18,7 +18,6 @@
 		4A25331125E9B4C50000A90B /* Finetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331025E9B4C50000A90B /* Finetic.swift */; };
 		4A25331425E9B52C0000A90B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331325E9B52C0000A90B /* AccountView.swift */; };
 		4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A25331925E9BA260000A90B /* RunsResponse.swift */; };
-		4A8484AB25E5398200F50FD4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8484AA25E5398200F50FD4 /* LocationManager.swift */; };
 		4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */; };
 		4A93E40125F140980054B104 /* SigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E40025F140980054B104 /* SigninView.swift */; };
 		4A93E40B25F143930054B104 /* FormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E40A25F143930054B104 /* FormField.swift */; };
@@ -26,6 +25,9 @@
 		4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E41525F1494E0054B104 /* SessionStore.swift */; };
 		4A93E41925F149B90054B104 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E41825F149B90054B104 /* User.swift */; };
 		4A93E42325F1A6590054B104 /* TracksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A93E42225F1A6590054B104 /* TracksService.swift */; };
+		4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9625F2B2BD00CC5536 /* MapView.swift */; };
+		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
+		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
 		FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CAABA802876850DC49133 /* Pods_Finetic.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +45,6 @@
 		4A25331025E9B4C50000A90B /* Finetic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Finetic.swift; sourceTree = "<group>"; };
 		4A25331325E9B52C0000A90B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		4A25331925E9BA260000A90B /* RunsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsResponse.swift; sourceTree = "<group>"; };
-		4A8484AA25E5398200F50FD4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKCoordinateRegions+DefaultRegion.swift"; sourceTree = "<group>"; };
 		4A93E40025F140980054B104 /* SigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninView.swift; sourceTree = "<group>"; };
 		4A93E40A25F143930054B104 /* FormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormField.swift; sourceTree = "<group>"; };
@@ -51,6 +52,9 @@
 		4A93E41525F1494E0054B104 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		4A93E41825F149B90054B104 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4A93E42225F1A6590054B104 /* TracksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksService.swift; sourceTree = "<group>"; };
+		4AA87B9625F2B2BD00CC5536 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
+		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
 		934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.release.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.release.xcconfig"; sourceTree = "<group>"; };
 		98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.debug.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7CAABA802876850DC49133 /* Pods_Finetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,9 +142,9 @@
 			isa = PBXGroup;
 			children = (
 				4A93E41525F1494E0054B104 /* SessionStore.swift */,
-				4A8484AA25E5398200F50FD4 /* LocationManager.swift */,
 				4A25331925E9BA260000A90B /* RunsResponse.swift */,
 				4A93E42225F1A6590054B104 /* TracksService.swift */,
+				4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -165,6 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				4A93E40A25F143930054B104 /* FormField.swift */,
+				4AA87B9625F2B2BD00CC5536 /* MapView.swift */,
+				4AA87BA525F2EDF800CC5536 /* RunCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -299,13 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A8484AB25E5398200F50FD4 /* LocationManager.swift in Sources */,
 				4A93E42325F1A6590054B104 /* TracksService.swift in Sources */,
 				4A25330E25E9B3480000A90B /* DashboardView.swift in Sources */,
 				4A93E40125F140980054B104 /* SigninView.swift in Sources */,
 				4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */,
+				4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */,
 				4A93E41925F149B90054B104 /* User.swift in Sources */,
 				4A25330B25E9B32D0000A90B /* NewTrackView.swift in Sources */,
+				4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */,
 				4A25331125E9B4C50000A90B /* Finetic.swift in Sources */,
 				4A93E40B25F143930054B104 /* FormField.swift in Sources */,
 				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
@@ -313,6 +320,7 @@
 				4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */,
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
 				4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */,
+				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
 				4A175BBE25E478010015062D /* Run.swift in Sources */,
 				4A175BA825E476E20015062D /* FineticApp.swift in Sources */,

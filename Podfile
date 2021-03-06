@@ -7,4 +7,6 @@ target 'Finetic' do
 
   # Pods for Finetic
 pod 'Alamofire', '~> 5.2'
+pod 'Polyline', '~> 5.0'
+
 end
