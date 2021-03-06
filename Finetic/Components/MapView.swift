@@ -29,13 +29,18 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
         mapView.delegate = context.coordinator
-        mapView.isZoomEnabled = false
-        mapView.isScrollEnabled = false
+      
         return mapView
       }
     
     func updateUIView(_ uiView: MKMapView, context: Context) {
         updateOverlays(from: uiView)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 2.0,
+                                            longitudeDelta: 2.0)
+        let region = MKCoordinateRegion(center: track.centerPoint, latitudinalMeters: track.latSpan, longitudinalMeters: track.lonSpan)
+                uiView.setRegion(region,animated: true)
+        
     }
 
     func updateOverlays(from mapView: MKMapView) {
