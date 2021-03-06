@@ -15,7 +15,7 @@ struct RunCard: View {
             MapView(track: track)
                 .frame(height: 350)
                 
-            Text(track.createdAt)
+            Text(track.formattedDate)
                 .font(.headline)
                 .bold()
             HStack {

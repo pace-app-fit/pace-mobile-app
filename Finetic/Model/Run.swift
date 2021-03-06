@@ -31,6 +31,13 @@ struct Run: Codable, Hashable {
         distance * 0.3 * 1000
     }
     
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        let date = dateFormatter.date(from: createdAt)
+        return String("\(date ?? Date())")
+    }
+    
     
     
     var clCoordinates: [CLLocationCoordinate2D] {

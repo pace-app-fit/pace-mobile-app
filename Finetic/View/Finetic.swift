@@ -15,9 +15,9 @@ struct Finetic: View {
     
     var body: some View {
         NavigationView {
-            
-               VideoPlayer(player: player)
-            
+            ScrollView {
+                
+            }
             .navigationTitle("Aleesha's Finetic")
         }
     }

@@ -15,6 +15,7 @@ struct DashboardView: View {
         ScrollView {
             Text("Hello \(session.user?.email ?? "unknown figure")")
         }
+        
        
     }
 }

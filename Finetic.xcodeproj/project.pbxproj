@@ -28,6 +28,7 @@
 		4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9625F2B2BD00CC5536 /* MapView.swift */; };
 		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
 		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
+		4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4225F3A56C0040370C /* NewRun.swift */; };
 		FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CAABA802876850DC49133 /* Pods_Finetic.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		4AA87B9625F2B2BD00CC5536 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
 		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
+		4AB6FA4225F3A56C0040370C /* NewRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRun.swift; sourceTree = "<group>"; };
 		934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.release.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.release.xcconfig"; sourceTree = "<group>"; };
 		98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.debug.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7CAABA802876850DC49133 /* Pods_Finetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 			children = (
 				4A175BBD25E478010015062D /* Run.swift */,
 				4A93E41825F149B90054B104 /* User.swift */,
+				4AB6FA4225F3A56C0040370C /* NewRun.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
 				4A25331A25E9BA260000A90B /* RunsResponse.swift in Sources */,
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
+				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A93E41625F1494E0054B104 /* SessionStore.swift in Sources */,
 				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
