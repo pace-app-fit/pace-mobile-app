@@ -10,6 +10,8 @@ import Alamofire
 
 class FineticService: ObservableObject {
     
+    var query: String = "all"
+    
     @Published var workouts: [Workout]?
     
     let root = "https://orange-lionfish-80.loca.lt"
@@ -23,8 +25,8 @@ class FineticService: ObservableObject {
         }
     }
     
-    func fetchAllWorkouts() {
-        AF.request("\(root)/workouts/all", headers: headers)
+    func fetchAllWorkouts(query: String) {
+        AF.request("\(root)/workouts/\(query)", headers: headers)
             .responseData { (res) in
                 switch res.result {
                 case .success(let data):
@@ -39,7 +41,7 @@ class FineticService: ObservableObject {
     }
     
     init() {
-        fetchAllWorkouts()
+        fetchAllWorkouts(query: query)
     }
     
     

@@ -12,7 +12,14 @@ struct Run: Codable, Hashable {
     let timestamp: String?
     
     var formatedTime: String {
-        String(round(time))
+        
+        get {
+            let minutes = String(format: "%g", round(time / 60))
+            let seconds = String(format: "%g", round(time.truncatingRemainder(dividingBy: 60)))
+            return String("\(minutes):\(seconds)")
+        }
+        
+        
     }
     
     var formatedDistance: String {

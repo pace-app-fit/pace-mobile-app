@@ -17,7 +17,7 @@ struct FitnessCardView: View {
 
     
     var body: some View {
-        NavigationLink(destination: WorkoutDetailsView(workout: workout)) {
+        NavigationLink(destination: WorkoutDetailsView(workout: workout, controller: PlayerViewController(videoURL: URL(string: workout.videoURL)))) {
             VStack(alignment: .leading) {
                 URLImage(url: workout.heroURL!) { image in
                     image
@@ -74,6 +74,7 @@ struct FitnessCardView: View {
                 Text(workout.workoutDescription)
                     .font(.body)
                     .foregroundColor(.secondary)
+                    .lineLimit(2)
                 
                 
                 

@@ -14,40 +14,44 @@ struct RunCard: View {
         VStack(alignment: .leading) {
             
             MapView(track: track)
-                .frame(height: 350)
+                .frame(height: 270)
+                .cornerRadius(cornerRadius)
+                .padding()
             Text(track.name)
                 .font(.title)
                 .bold()
                 .foregroundColor(.purple)
                 .padding(.leading)
             
-            HStack {
+            HStack(spacing: 50) {
                 VStack(alignment: .center, spacing: 0) {
                     
                     HStack(spacing: 0) {
                         Text(track.formatedTime)
                             .bold()
-                            .font(.system(size: 50))
+                            .font(.system(size: largeNumber))
                         Text("min")
                             .foregroundColor(.secondary)
-                            .padding(.top, 15)
+                            .padding(.top, paddingSize)
                     }
-                    Image("clock")
+                    Text("Time")
+                        .foregroundColor(.secondary)
+                        .bold()
                 }
                 
                 
                 VStack(alignment: .center, spacing: 0){
-                    
                     HStack(spacing: 0) {
                         Text(track.formatedDistance)
                             .bold()
-                            .font(.system(size: 50))
+                            .font(.system(size: largeNumber))
                         Text("Km")
                             .foregroundColor(.secondary)
-                            .padding(.top, 15)
-
+                            .padding(.top, paddingSize)
                     }
-                    Image("difficulty")
+                    Text("Distance")
+                        .foregroundColor(.secondary)
+                        .bold()
                 }
                 
             }
@@ -55,10 +59,14 @@ struct RunCard: View {
             
                 
                
-            
+            Divider()
           
         }
         
     }
+    
+    var cornerRadius = CGFloat(15)
+    var largeNumber = CGFloat(42)
+    var paddingSize = CGFloat(15)
 }
 

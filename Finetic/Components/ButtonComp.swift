@@ -8,26 +8,22 @@
 import SwiftUI
 
 
-struct ButtonComp: View {
+struct ButtonModifier: ViewModifier {
     
-    @State var text: String
-    @State var color: Color
-    
-    var body: some View {
-        VStack {
-            Button(action: {
-                
-            }, label: {
-                Text(text)
-                    .font(.title)
-                    .frame(width: 200)
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-            })
-            .background(
-                Capsule()
-                    .fill(color)
-            )
-        }
+    func body(content: Content) -> some View {
+        content
+            .frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+            .frame(height: 20)
+            .padding()
+            .foregroundColor(.white)
+            .font(.title)
+            .background(Color.pink)
+            .cornerRadius(5)
+    }
+}
+
+extension View {
+    func buttonModifier() -> some View {
+        self.modifier(ButtonModifier())
     }
 }
