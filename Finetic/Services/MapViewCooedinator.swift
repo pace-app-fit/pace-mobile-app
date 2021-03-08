@@ -16,9 +16,7 @@ class MapViewCoordinator: NSObject, MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        
-//            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.0703746, longitude: 114.2218712), latitudinalMeters: 50, longitudinalMeters: 50)
-//            mapView.setRegion(region, animated: true)
+
          
       }
 

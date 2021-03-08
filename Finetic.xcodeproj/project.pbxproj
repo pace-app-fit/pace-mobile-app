@@ -35,6 +35,7 @@
 		4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */; };
 		4AB6FA5F25F41C4E0040370C /* ButtonComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */; };
 		4AB6FA6225F465860040370C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA6125F465860040370C /* PlayerViewController.swift */; };
+		4ABF288D25F65E720053FCAA /* NewRunMapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF288C25F65E720053FCAA /* NewRunMapViewCoordinator.swift */; };
 		FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7CAABA802876850DC49133 /* Pods_Finetic.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailsView.swift; sourceTree = "<group>"; };
 		4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComp.swift; sourceTree = "<group>"; };
 		4AB6FA6125F465860040370C /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		4ABF288C25F65E720053FCAA /* NewRunMapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunMapViewCoordinator.swift; sourceTree = "<group>"; };
 		934AEA36B47D168DA31033AB /* Pods-Finetic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.release.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.release.xcconfig"; sourceTree = "<group>"; };
 		98158F4974F8C997B5C92312 /* Pods-Finetic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Finetic.debug.xcconfig"; path = "Target Support Files/Pods-Finetic/Pods-Finetic.debug.xcconfig"; sourceTree = "<group>"; };
 		CD7CAABA802876850DC49133 /* Pods_Finetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Finetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 				4A93E42225F1A6590054B104 /* TracksService.swift */,
 				4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */,
 				4AB6FA4925F3FB620040370C /* FineticService.swift */,
+				4ABF288C25F65E720053FCAA /* NewRunMapViewCoordinator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				4A93E40125F140980054B104 /* SigninView.swift in Sources */,
 				4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */,
 				4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */,
+				4ABF288D25F65E720053FCAA /* NewRunMapViewCoordinator.swift in Sources */,
 				4A93E41925F149B90054B104 /* User.swift in Sources */,
 				4A25330B25E9B32D0000A90B /* NewTrackView.swift in Sources */,
 				4AB6FA6225F465860040370C /* PlayerViewController.swift in Sources */,

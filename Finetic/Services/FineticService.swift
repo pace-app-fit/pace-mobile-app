@@ -14,7 +14,7 @@ class FineticService: ObservableObject {
     
     @Published var workouts: [Workout]?
     
-    let root = "https://orange-lionfish-80.loca.lt"
+    let root = "https://chilly-quail-88.loca.lt"
     let token = UserDefaults.standard.string(forKey: "token")
     var headers: HTTPHeaders {
         get {

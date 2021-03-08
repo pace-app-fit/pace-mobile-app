@@ -12,10 +12,13 @@ struct Finetic: View {
     
     @ObservedObject var worksouts = FineticService()
     
+    @ViewBuilder
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
+                    
+                    
                     ForEach(worksouts.workouts!) { workout in
                         FitnessCardView(workout: workout)
                     }

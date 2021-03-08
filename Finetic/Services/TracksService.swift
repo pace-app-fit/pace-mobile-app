@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class TracksService: ObservableObject {
-    let root = "https://orange-lionfish-80.loca.lt"
+    let root = "https://chilly-quail-88.loca.lt"
     @Published var previousRuns: [Run]?
     let token = UserDefaults.standard.string(forKey: "token")
     var headers: HTTPHeaders {
@@ -21,6 +21,8 @@ class TracksService: ObservableObject {
         }
        
     }
+    
+    var newRun: NewRun?
     
     func fetchTracks() {
         AF.request("\(root)/tracks", headers: headers)
@@ -47,10 +49,11 @@ class TracksService: ObservableObject {
         }
         
         
-        AF.request("\(root)/tracks", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request("\(root)/tracks",method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
             .responseJSON { (res) in
-                let body = res.value as! NSDictionary
-                let token = body["token"] as! String
+                debugPrint(res)
+//                let body = res.value as! NSDictionary
+//                let token = body["token"] as! String
                
                 
             }

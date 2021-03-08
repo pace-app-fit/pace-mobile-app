@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Workout
-struct Workout: Codable, Identifiable {
+struct Workout: Codable, Identifiable, Hashable {
     var id, name, createdBy: String
     var videoURL: String
     var equipment, difficulty, time, workoutDescription: String

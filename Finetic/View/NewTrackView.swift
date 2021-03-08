@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct NewTrackView: View {
+    
+    @ObservedObject var location = NewRunLocationManager()
+    
     var body: some View {
-        Text("Hello from the new track view")
+        VStack {
+            Spacer()
+            Button("Start run") {
+                location.startRecording()
+            }
+            
+            Spacer()
+            Button("Submit Run") {
+                location.createRun(name: "iOS test", coords: location.locations ?? [])
+            }
+            Spacer()
+        }
     }
 }
 

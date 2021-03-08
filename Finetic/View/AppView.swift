@@ -25,7 +25,7 @@ struct AppView: View {
             }
             NewTrackView()
                 .tabItem {
-                    Image(systemName: "plus.circle")
+                    Image(systemName: "plus.circle.fill")
                     Text("New run")
                 }
             Finetic()

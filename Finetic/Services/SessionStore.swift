@@ -18,7 +18,7 @@ class SessionStore: ObservableObject {
         return user?.token ?? ""
     }
     
-    let root = "https://orange-lionfish-80.loca.lt"
+    let root = "https://chilly-quail-88.loca.lt"
     
     
     func signin(email: String, password: String) {
