@@ -8,5 +8,12 @@ target 'Finetic' do
   # Pods for Finetic
 pod 'Alamofire', '~> 5.2'
 pod 'URLImage'
+pod 'Firebase/Auth'
+pod 'FirebaseUI/Google'
+pod 'FirebaseUI/Facebook'
+pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
+pod 'FirebaseUI/Phone'
+pod 'Firebase/Firestore'
+pod 'Firebase/Storage'
 
 end

@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct User {
+struct User: Encodable, Decodable {
+    var uid: String
     var email: String
-    var token: String
     var firstName: String
     var lastName: String
-    
-    var fullName: String {
-        "\(firstName) \(lastName)"
-    }
     
 }

@@ -9,14 +9,13 @@ import SwiftUI
 
 struct DashboardView: View {
     
-    @EnvironmentObject var session: SessionStore
     
     var body: some View {
         NavigationView {
             ScrollView {
                 
             }
-            .navigationTitle("\(session.user?.firstName.capitalized ?? "Dashboard")")
+          
         }
        
         

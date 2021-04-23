@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct ResolveApplication: View {
+    @EnvironmentObject var session: SessionStore
     
-    @StateObject var session = SessionStore()
+    func listen() {
+        session.listen()
+    }
     
     var body: some View {
         Group {
-            if (session.isAuthorized) {
+            if session.session != nil {
                 AppView()
             } else {
-                SigninView()
+                SignupView()
             }
-        }.environmentObject(session)
+            
+        }.onAppear(perform: listen)
         
     }
     

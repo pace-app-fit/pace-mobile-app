@@ -2,83 +2,61 @@
 //  SessionStore.swift
 //  Finetic
 //
-//  Created by Tapiwa on 2021-03-04.
+//  Created by Tapiwa on 2021-04-21.
 //
 
 import Foundation
 import Combine
-import Alamofire
+import Firebase
+import FirebaseAuth
 
 class SessionStore: ObservableObject {
-    @Published var isAuthorized = false
-    @Published var user: User?
+    var didChange = PassthroughSubject<SessionStore, Never>()
+    @Published var session: User? {didSet{self.didChange.send(self)}}
+    var handle: AuthStateDidChangeListenerHandle?
     
-    
-    var token: String {
-        return user?.token ?? ""
-    }
-    
-    let root = "https://chilly-quail-88.loca.lt"
-    
-    
-    func signin(email: String, password: String) {
-        let parameters: [String: String] = [
-            "email": email,
-            "password": password
-        ]
-        
-        AF.request("\(root)/signin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
-            .responseJSON { (res) in
-                let body = res.value as! NSDictionary
-                let token = body["token"] as! String
-               
-                self.isAuthorized = true
-                self.user?.token = token
-                
-                
-                                
-                UserDefaults.standard.set(token, forKey: "token")
-            }
-    }
-    
-    func tryLocalSignin() {
-        let token = UserDefaults.standard.string(forKey: "token")
-       
-        if let token = token {
-            var email: String = ""
-            var firstName: String = ""
-            var lastName: String = ""
+    func listen () {
+        handle = Auth.auth().addStateDidChangeListener({
+            (auth, user) in
             
-            let headers: HTTPHeaders = [
-                "Authorization": "Bearer \(token)",
-                "Accept": "application/json"
-            ]
-            
-            AF.request("\(root)/get-users", headers: headers)
-                .responseJSON { res in
-                    
-                    let body = res.value as! NSDictionary
-                    email = body["email"] as! String
-                    firstName = body["firstName"] as! String
-                    lastName = body["lastName"] as! String
-                    
-                    self.user = User(email: email, token: token, firstName: firstName, lastName: lastName)
+            if let user = user {
+                
+                let firestoreUserId = AuthService.getUserId(userID: user.uid)
+                firestoreUserId.getDocument{
+                    (document, error) in
                     
                     
+                    if let dict = document?.data() {
+                       
+                        guard let decodedUser = try? User.init(fromDictionary: dict) else {
+                            return
+                        }
+                        self.session = decodedUser
+                    } else {
+                        self.session = nil
+                        
+                        
+                    }
                 }
-            self.isAuthorized = true
+            }
+        })
+    }
+    
+    func logout() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
             
         }
-        
     }
     
-    func signout() {
-        UserDefaults.standard.removeObject(forKey: "token")
-        self.isAuthorized = false
+    func unbind() {
+        if let handle = handle {
+            Auth.auth().removeStateDidChangeListener(handle)
+        }
     }
     
-    init() {
-        tryLocalSignin()
-        
+    deinit {
+        unbind()
     }
 }

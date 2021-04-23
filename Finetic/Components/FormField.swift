@@ -26,9 +26,9 @@ struct FormField: View {
                     }
                 }
                 .padding()
-                .background(Color("flash-white"))
+                .background(Color.white)
                 .cornerRadius(4)
-                .font(.system(size: 26))
+                
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
@@ -37,5 +37,3 @@ struct FormField: View {
         }
     }
 }
-
-

@@ -10,7 +10,6 @@ import AVKit
 
 struct Finetic: View {
     
-    @ObservedObject var worksouts = FineticService()
     
     @ViewBuilder
     var body: some View {
@@ -19,9 +18,9 @@ struct Finetic: View {
                 VStack {
                     
                     
-                    ForEach(worksouts.workouts!) { workout in
-                        FitnessCardView(workout: workout)
-                    }
+//                    ForEach(worksouts.workouts ?? []) { workout in
+//                        FitnessCardView(workout: workout)
+//                    }
                 }
             }
             .navigationTitle("Finetic")
