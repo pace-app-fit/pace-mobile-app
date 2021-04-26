@@ -12,25 +12,17 @@ import MapKit
 struct NewRun: Codable, Hashable {
     var name: String
     var id = UUID()
-    var locations: [NewLocation]
+    var locations: [NewCoords]
+    var createdAt = Date()
     
-}
-
-// MARK: - Location
-struct NewLocation: Codable, Hashable {
-    var coords: NewCoords
-    var id = UUID()
-
-    enum CodingKeys: String, CodingKey {
-        case coords
-        case id = "_id"
-    }
 }
 
 // MARK: - Coords
 struct NewCoords: Codable, Hashable {
     var speed, heading, longitude, accuracy: Double
     var latitude, altitude: Double
+    var id = UUID()
+    var createdAt = Date()
 }
 
 

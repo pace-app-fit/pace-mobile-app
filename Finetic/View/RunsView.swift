@@ -11,22 +11,27 @@ import Combine
 
 struct RunsView: View {
     
+    @ObservedObject var tracks = RunsService()
+    
    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-//                    ForEach(tracks.previousRuns ?? [], id: \.self) { track in
-//                        RunCard(track: track)
-//
-//                    }
+                    ForEach(tracks.runs ?? [], id: \.self) { track in
+                        RunCard(track: track)
+
+                    }
                     
                     
-                }
+                }.onAppear(perform: tracks.fetchRuns)
+                
             }
             .navigationTitle("Previous Runs")
             
+            
         }
+        .background(Color(UIColor.lightGray))
             
     }
 }

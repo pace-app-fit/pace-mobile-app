@@ -9,18 +9,22 @@ import SwiftUI
 
 struct NewTrackView: View {
     
-    
+    @ObservedObject var locationCoordinator = NewRunCoordinator()
+    @State private var isPresented = false
     var body: some View {
         VStack {
-            NewRunMapView()
+            
             Button("Start run") {
-                
+                locationCoordinator.start()
+                isPresented.toggle()
             }
             
-            Spacer()
-          
-            Spacer()
-        }
+            Button("Stop run") {
+                locationCoordinator.stop()
+            }
+            
+            
+        }.fullScreenCover(isPresented: $isPresented, content: RunInProgressView.init)
     }
 }
 

@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - Workout
 struct Workout: Codable, Identifiable, Hashable {
-    var id, name, createdBy: String
+    var id = UUID()
+    var name, createdBy: String
     var videoURL: String
     var equipment, difficulty, time, workoutDescription: String
     var heroimg: String
-    var v: Int
     
     var heroURL: URL? {
         URL(string: heroimg)
@@ -21,13 +21,11 @@ struct Workout: Codable, Identifiable, Hashable {
     
 
     enum CodingKeys: String, CodingKey {
-        case id = "_id"
         case name, createdBy
         case videoURL = "videoUrl"
         case equipment, difficulty, time
-        case workoutDescription = "description"
-        case heroimg
-        case v = "__v"
+        case workoutDescription
+        case heroimg = "heroURL"
     }
     
 }

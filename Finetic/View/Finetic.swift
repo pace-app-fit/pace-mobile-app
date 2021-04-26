@@ -9,7 +9,7 @@ import SwiftUI
 import AVKit
 
 struct Finetic: View {
-    
+    @ObservedObject var finetic = FineticVideoService()
     
     @ViewBuilder
     var body: some View {
@@ -18,13 +18,14 @@ struct Finetic: View {
                 VStack {
                     
                     
-//                    ForEach(worksouts.workouts ?? []) { workout in
-//                        FitnessCardView(workout: workout)
-//                    }
+                    ForEach(finetic.workouts ?? []) { workout in
+                        FitnessCardView(workout: workout)
+                    }
                 }
             }
             .navigationTitle("Finetic")
         }
+        
     }
 }
 

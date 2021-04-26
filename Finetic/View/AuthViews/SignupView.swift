@@ -31,7 +31,7 @@ struct SignupView: View {
             return
         }
         
-        AuthService.signup(firstname: firstName, lastName: lastName, email: email, password: password, onSuccess: {(user) in self.clear()}, onError: {
+        SessionStore().signup(firstname: firstName, lastName: lastName, email: email, password: password, onSuccess: {(user) in self.clear()}, onError: {
             (errorMessage) in
             print("Error \(errorMessage)")
             self.error = errorMessage

@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import Firebase
+import FirebaseFirestore
 
 struct User: Encodable, Decodable {
     var uid: String
     var email: String
     var firstName: String
     var lastName: String
+    var firestoreId: DocumentReference {
+        Firestore.firestore().collection("users").document(uid)
+    }
     
 }

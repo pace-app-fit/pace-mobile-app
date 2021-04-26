@@ -34,7 +34,7 @@ struct SigninView: View {
             return
         }
         
-        AuthService.signin(email: email, password: password,  onSuccess: {
+        SessionStore().signin(email: email, password: password,  onSuccess: {
             (user) in
             self.clear()
         }, onError: {

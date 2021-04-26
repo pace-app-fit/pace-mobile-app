@@ -127,6 +127,6 @@ struct FullScreenModalView: View {
 //    }
 //}
 
-var devWorkout = Workout(id: "test", name: "Guided Yoga", createdBy: "Aleesha Gettis", videoURL: "https://res.cloudinary.com/dnmlpwow2/video/upload/v1612224779/RPReplay_Final1612222370_up45oi.mov", equipment: "None", difficulty: "Beginner", time: "7 min", workoutDescription: "Guided Yoga to clear your mind and relax the body. Get your session in!", heroimg: "https://res.cloudinary.com/dnmlpwow2/image/upload/v1615055635/yoga2_2x_rksqsz.png", v: 1)
+var devWorkout = Workout( name: "Guided Yoga", createdBy: "Aleesha Gettis", videoURL: "https://res.cloudinary.com/dnmlpwow2/video/upload/v1612224779/RPReplay_Final1612222370_up45oi.mov", equipment: "None", difficulty: "Beginner", time: "7 min", workoutDescription: "Guided Yoga to clear your mind and relax the body. Get your session in!", heroimg: "https://res.cloudinary.com/dnmlpwow2/image/upload/v1615055635/yoga2_2x_rksqsz.png" )
 
 

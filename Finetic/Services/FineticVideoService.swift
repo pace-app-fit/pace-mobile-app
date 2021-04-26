@@ -10,8 +10,8 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
-class FineticVideoService {
-    var workouts: [Workout]?
+class FineticVideoService: ObservableObject {
+    @Published var workouts: [Workout]? = []
     var storeRoot = Firestore.firestore()
     
     func fetchWorkouts(filterBy: String){
@@ -19,16 +19,18 @@ class FineticVideoService {
             if let err = err {
                 print("Error getting documents: \(err.localizedDescription)")
                } else {
-                   for document in data!.documents {
-                    var decodedWorkout = try? Workout?.init(fromDictionary: document)
-                    self.workouts?.append(decodedWorkout!)
+                for document in data!.documents {
+                    guard let decodedWorkout = try? Workout?.init(fromDictionary: document.data()) else {return}
+                    self.workouts?.append(decodedWorkout)
                    }
                }
         }
-        print(workouts)
         
         
         
-        
+    }
+    
+    init() {
+        fetchWorkouts(filterBy: "all")
     }
 }

@@ -10,22 +10,18 @@ import SwiftUI
 struct AccountView: View {
     @EnvironmentObject var session: SessionStore
     
-    func signOut() {
-        session.logout()
-    }
-    
     var body: some View {
         NavigationView {
             Form {
                 Section(header: Text("Details")) {
                     HStack{
-                        Text(session.session?.firstName.capitalized ?? "Log in")
+                        Text(session.currentUser?.displayName ?? "Log in")
                             .font(.headline)
                         Spacer()
                             
                     }
                     HStack{
-                        Text(session.session?.email ?? "Log in")
+                        Text(session.currentUser?.email ?? "Log in")
                             .font(.headline)
                         Spacer()
                             
@@ -35,7 +31,7 @@ struct AccountView: View {
                 
                 Section(header: Text("Log out")) {
                     Text("Signout")
-                        .onTapGesture(perform: signOut)
+                        .onTapGesture(perform: session.logout)
                 }
             }
             .navigationTitle("Account")

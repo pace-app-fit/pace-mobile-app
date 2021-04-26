@@ -5,25 +5,25 @@ import MapKit
 struct Run: Codable, Hashable {
     let name, id: String
     let locations: [Location]
-    let userID: String
     let time, distance, averagePace, averageSpeed: Double
-    let v: Int
-    let createdAt: String
-    let timestamp: String?
+    let createdAt: Double
     
     var formatedTime: String {
-        
-        get {
-            let minutes = String(format: "%g", round(time / 60))
-            let seconds = String(format: "%g", round(time.truncatingRemainder(dividingBy: 60)))
-            return String("\(minutes):\(seconds)")
-        }
-        
-        
+        let minutes = String(format: "%g", round(time / 60))
+        let seconds = String(format: "%g", round(time.truncatingRemainder(dividingBy: 60)))
+        return String("\(minutes):\(seconds) min")
     }
     
     var formatedDistance: String {
-        String(format: "%.2f", distance)
+       "\(String(format: "%.2f", distance)) km"
+    }
+    
+    var formatedPace: String {
+        var minutes = averagePace.rounded(.down)
+        var wholeMinutes = String(format: "%g", minutes)
+        let seconds = ((averagePace-minutes)*60).rounded(.up)
+        let wholeSeconds = String(format: "%g", seconds)
+        return String("\(wholeMinutes):\(wholeSeconds)min / km")
     }
     
     var centerPoint: CLLocationCoordinate2D {
@@ -38,12 +38,12 @@ struct Run: Codable, Hashable {
         distance * 0.3 * 1000
     }
     
-    var formattedDate: String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
-        let date = dateFormatter.date(from: createdAt)
-        return String("\(date ?? Date())")
-    }
+//    var formattedDate: String {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "dd/MM/yy"
+//        let date = dateFormatter.date(from: createdAt)
+//        return String("\(date ?? Date())")
+//    }
     
     
     
@@ -51,23 +51,13 @@ struct Run: Codable, Hashable {
         get {
             var coords = [CLLocationCoordinate2D]()
             for i in locations {
-                coords.append(CLLocationCoordinate2D(latitude: CLLocationDegrees(i.coords.latitude), longitude: CLLocationDegrees(i.coords.longitude)))
+                coords.append(CLLocationCoordinate2D(latitude: CLLocationDegrees(i.latitude), longitude: CLLocationDegrees(i.longitude)))
             }
             
             return coords
         }
     }
 
-    enum CodingKeys: String, CodingKey {
-        case name
-        case id = "_id"
-        case locations
-        case userID = "userId"
-        case time, distance, averagePace, averageSpeed
-        case v = "__v"
-        case createdAt, timestamp
-    }
-    
     func calculateCenter(coordinates: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D {
         var x: Double = 0
         var y: Double = 0
@@ -96,23 +86,13 @@ struct Run: Codable, Hashable {
     }
 }
 
-// MARK: - Location
-struct Location: Codable, Hashable {
-    let coords: Coords
-    let id: String
-    let timestamp: Double
-
-    enum CodingKeys: String, CodingKey {
-        case coords
-        case id = "_id"
-        case timestamp
-    }
-}
 
 // MARK: - Coords
-struct Coords: Codable, Hashable {
-    let speed, heading, longitude, accuracy: Double
-    let latitude, altitude: Double
+struct Location: Codable, Hashable {
+    let speed, altitude, accuracy: Double
+    let latitude, longitude, createdAt: Double
+//    let heading: Int
+    let id: String
 }
 
 
