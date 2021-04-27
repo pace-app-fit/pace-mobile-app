@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct ButtonModifier: ViewModifier {
+    var backgroundColor: Color = Color.pink
+    
     
     func body(content: Content) -> some View {
         content
@@ -17,7 +19,7 @@ struct ButtonModifier: ViewModifier {
             .padding()
             .foregroundColor(.white)
             .font(.title)
-            .background(Color.pink)
+            .background(backgroundColor)
             .cornerRadius(5)
     }
 }

@@ -9,20 +9,19 @@ import SwiftUI
 
 struct NewTrackView: View {
     
-    @ObservedObject var locationCoordinator = NewRunCoordinator()
     @State private var isPresented = false
     var body: some View {
+        GeometryReader { geo in
+            
         VStack {
-            
-            Button("Start run") {
-                locationCoordinator.start()
-                isPresented.toggle()
+            Spacer()
+                Button("Start run") {
+                    isPresented.toggle()
+                }
+                .modifier(ButtonModifier())
+                .frame(width: geo.size.width * 0.5)
+            Spacer()
             }
-            
-            Button("Stop run") {
-                locationCoordinator.stop()
-            }
-            
             
         }.fullScreenCover(isPresented: $isPresented, content: RunInProgressView.init)
     }

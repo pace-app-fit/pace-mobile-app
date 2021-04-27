@@ -49,15 +49,13 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     }
     
     
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) -> MKMapView{
         let latDelta:CLLocationDegrees = 0.01
         let lonDelta:CLLocationDegrees = 0.01
         let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta)
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
         mapView.setRegion(region, animated: true)
-        
-        
-                        
+        return mapView
     }
 
     

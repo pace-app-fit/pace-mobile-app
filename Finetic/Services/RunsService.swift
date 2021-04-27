@@ -30,7 +30,11 @@ class RunsService: SessionStore {
         request.httpBody = try? encoder.encode(data)
         URLSession.shared.dataTaskPublisher(for: request)
             .retry(1)
-            .map(\.data)
+//            .map(\.data)
+            .map { a in
+                print(String(decoding: a.data, as: UTF8.self))
+                return a.data
+            }
             .decode(type: Output.self, decoder: JSONDecoder())
             .map(Result.success)
             .catch {error -> Just<Result<Output, UploadError>> in

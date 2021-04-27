@@ -33,6 +33,9 @@
 		4A9D18952635FE8200ED26AC /* RunDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18942635FE8100ED26AC /* RunDetailsView.swift */; };
 		4A9D18982636DF8900ED26AC /* RunInProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18972636DF8900ED26AC /* RunInProgressView.swift */; };
 		4A9D189B2636E44600ED26AC /* StopWatchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D189A2636E44600ED26AC /* StopWatchManager.swift */; };
+		4A9D189E2636FDAE00ED26AC /* RunStatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */; };
+		4A9D18A12637052300ED26AC /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18A02637052300ED26AC /* Date+Formatter.swift */; };
+		4A9D18A426370C8100ED26AC /* SplitsTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */; };
 		4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9625F2B2BD00CC5536 /* MapView.swift */; };
 		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
 		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
@@ -75,6 +78,9 @@
 		4A9D18942635FE8100ED26AC /* RunDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsView.swift; sourceTree = "<group>"; };
 		4A9D18972636DF8900ED26AC /* RunInProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunInProgressView.swift; sourceTree = "<group>"; };
 		4A9D189A2636E44600ED26AC /* StopWatchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchManager.swift; sourceTree = "<group>"; };
+		4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatComponent.swift; sourceTree = "<group>"; };
+		4A9D18A02637052300ED26AC /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
+		4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsTableComponent.swift; sourceTree = "<group>"; };
 		4AA87B9625F2B2BD00CC5536 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
 		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 			children = (
 				4A8484AF25E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift */,
 				4A5C302A2625ED5400F24522 /* encodable+dictionary.swift */,
+				4A9D18A02637052300ED26AC /* Date+Formatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -223,6 +230,8 @@
 				4AB6FA5E25F41C4E0040370C /* ButtonComp.swift */,
 				4AB6FA6125F465860040370C /* PlayerViewController.swift */,
 				4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */,
+				4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */,
+				4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 				4AB6FA4625F3E20B0040370C /* FitnessCardView.swift in Sources */,
 				4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */,
 				4A9D18982636DF8900ED26AC /* RunInProgressView.swift in Sources */,
+				4A9D18A426370C8100ED26AC /* SplitsTableComponent.swift in Sources */,
 				4A25331125E9B4C50000A90B /* Finetic.swift in Sources */,
 				4A16EB6526321CA70068A214 /* FineticVideoService.swift in Sources */,
 				4A93E40B25F143930054B104 /* FormField.swift in Sources */,
@@ -410,6 +420,7 @@
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A8C097F262600DF002FFB2A /* SignupView.swift in Sources */,
 				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
+				4A9D18A12637052300ED26AC /* Date+Formatter.swift in Sources */,
 				4A9D189B2636E44600ED26AC /* StopWatchManager.swift in Sources */,
 				4A16EB612631E90C0068A214 /* NewRunMapViewCoordinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
@@ -418,6 +429,7 @@
 				4A16EB5E2631E88C0068A214 /* NewRunMapView.swift in Sources */,
 				4A175BA825E476E20015062D /* FineticApp.swift in Sources */,
 				4AC4CE07263371E2003C752C /* RunsService.swift in Sources */,
+				4A9D189E2636FDAE00ED26AC /* RunStatComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,34 +7,6 @@
 
 import SwiftUI
 
-struct RunCardTrackInfo: View {
-    
-    var body: some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text("Distance")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
-                
-                Text("4.05 km")
-                    .font(.title)
-                    .italic()
-                    .bold()
-                
-            }
-            Divider()
-        }
-        .frame(height: 100)
-    }
-}
-
-struct RunCardTrackInfo_Previews: PreviewProvider {
-    static var previews: some View {
-        RunCardTrackInfo()
-    }
-}
-
-
 struct RunCard: View {
     var track: Run
     
@@ -49,36 +21,11 @@ struct RunCard: View {
                 .padding(.leading)
             
             HStack(spacing: 15) {
-                VStack(alignment: .leading, spacing: 0){
-                    Text("Distance")
-                        .foregroundColor(.secondary)
-                        .font(.subheadline)
-                    Text(track.formatedDistance)
-                        .font(.headline)
-                        .italic()
-                        .bold()
-                        
-                }
+                RunStatComponent(label: "Distance", value: track.formatedDistance)
                 Divider()
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Time")
-                        .foregroundColor(.secondary)
-                        .font(.subheadline)
-                    Text(track.formatedTime)
-                        .font(.headline)
-                        .italic()
-                        .bold()
-                }
+                RunStatComponent(label: "Time", value: track.formatedTime)
                 Divider()
-                VStack(alignment: .leading, spacing: 0) {
-                    Text("Pace")
-                        .foregroundColor(.secondary)
-                        .font(.subheadline)
-                    Text(track.formatedPace)
-                        .font(.headline)
-                        .italic()
-                        .bold()
-                }
+                RunStatComponent(label: "Pace", value: track.formatedPace)
                             
             }
             .padding(.leading)
@@ -96,11 +43,9 @@ struct RunCard: View {
                             .bold()
                     })
                 
-                    
                 Spacer()
             }
                 
-               
             Divider()
           
         }

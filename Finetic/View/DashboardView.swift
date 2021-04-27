@@ -15,6 +15,7 @@ struct DashboardView: View {
             ScrollView {
                 
             }
+            .navigationTitle("Dashboard")
           
         }
        

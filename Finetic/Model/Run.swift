@@ -7,6 +7,8 @@ struct Run: Codable, Hashable {
     let locations: [Location]
     let time, distance, averagePace, averageSpeed: Double
     let createdAt: Double
+    let unitAnalysis: [UnitDistanceData]
+    let totalElevation: TotalElevation
     
     var formatedTime: String {
         let minutes = String(format: "%g", round(time / 60))
@@ -19,11 +21,21 @@ struct Run: Codable, Hashable {
     }
     
     var formatedPace: String {
-        var minutes = averagePace.rounded(.down)
-        var wholeMinutes = String(format: "%g", minutes)
+        let minutes = averagePace.rounded(.down)
+        let wholeMinutes = String(format: "%g", minutes)
         let seconds = ((averagePace-minutes)*60).rounded(.up)
         let wholeSeconds = String(format: "%g", seconds)
-        return String("\(wholeMinutes):\(wholeSeconds)min / km")
+        return String("\(wholeMinutes):\(wholeSeconds) min / km")
+    }
+    
+    var formatedCreatedDate: String {
+        let date = try Date(timeIntervalSinceReferenceDate: createdAt)
+        return date.getFormattedDate(format: "EEEE, MMM d, yyyy")
+    }
+    
+    var formatedSpeed: String {
+        var speed = String(format: "%.2f", averageSpeed)
+        return "\(speed) km / h"
     }
     
     var centerPoint: CLLocationCoordinate2D {
@@ -93,6 +105,30 @@ struct Location: Codable, Hashable {
     let latitude, longitude, createdAt: Double
 //    let heading: Int
     let id: String
+}
+
+
+struct UnitDistanceData: Identifiable, Hashable, Codable, Equatable {
+    let km: Int
+    let elevation, pace: Double
+    var id = UUID()
+    
+    var kmAsString: String {
+        String(km)
+    }
+    
+    var paceAsString: String {
+        String(pace)
+    }
+    
+    var elevationAsString: String {
+        String(elevation)
+    }
+}
+
+struct TotalElevation: Identifiable, Hashable, Codable, Equatable {
+    let positive, negative, netElevation: Double
+    var id = UUID()
 }
 
 
