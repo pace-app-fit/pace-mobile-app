@@ -10,21 +10,17 @@ import SwiftUI
 struct ResolveApplication: View {
     @EnvironmentObject var session: SessionStore
     
-    @ViewBuilder var logged: some View {
-        if session.isSignedIn {
-            AppView()
-        } else {
-            SignupView()
-        }
-    }
     
-    var body: some View {
-        VStack {
-            logged
-        }
+     var body: some View {
+        Group {
+            if session.session != nil {
+                AppView()
+            } else {
+                SignupView()
+            }
+        }.onAppear(perform: session.listen)
         
     }
-    
     
 }
 

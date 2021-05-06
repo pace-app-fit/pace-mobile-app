@@ -14,12 +14,13 @@ struct NewRun: Codable, Hashable {
     var id = UUID()
     var locations: [NewCoords]
     var createdAt = Date()
-    
+    var createdBy: String
+
 }
 
 // MARK: - Coords
 struct NewCoords: Codable, Hashable {
-    var speed, heading, longitude, accuracy: Double
+    var speed, longitude, accuracy: Double
     var latitude, altitude: Double
     var id = UUID()
     var createdAt = Date()

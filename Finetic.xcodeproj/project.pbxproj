@@ -36,6 +36,20 @@
 		4A9D189E2636FDAE00ED26AC /* RunStatComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */; };
 		4A9D18A12637052300ED26AC /* Date+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18A02637052300ED26AC /* Date+Formatter.swift */; };
 		4A9D18A426370C8100ED26AC /* SplitsTableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */; };
+		4A9D18A82638FBA500ED26AC /* MusicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18A72638FBA400ED26AC /* MusicLibrary.swift */; };
+		4A9D18AC2639A0AE00ED26AC /* RunsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18AB2639A0AE00ED26AC /* RunsViewModel.swift */; };
+		4A9D18D12639D4F300ED26AC /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18D02639D4F200ED26AC /* SearchBar.swift */; };
+		4A9D18D42639D83B00ED26AC /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18D32639D83B00ED26AC /* SearchService.swift */; };
+		4A9D18D72639DB0300ED26AC /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18D62639DB0300ED26AC /* UserProfile.swift */; };
+		4A9D18DA263A324900ED26AC /* HomeScreenStatViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18D9263A324800ED26AC /* HomeScreenStatViewComponent.swift */; };
+		4A9D18DD263A7B1A00ED26AC /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9D18DC263A7B1700ED26AC /* NetworkMonitor.swift */; };
+		4AA5D665263B531500ACD2CC /* WeatherCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D664263B531500ACD2CC /* WeatherCard.swift */; };
+		4AA5D668263B553500ACD2CC /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D667263B553500ACD2CC /* AppColors.swift */; };
+		4AA5D679263F6FC100ACD2CC /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D678263F6FC100ACD2CC /* SocialService.swift */; };
+		4AA5D67D263F70CE00ACD2CC /* Follow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D67C263F70CE00ACD2CC /* Follow.swift */; };
+		4AA5D6812640369E00ACD2CC /* PersonalRingComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D6802640369E00ACD2CC /* PersonalRingComponent.swift */; };
+		4AA5D6852640370500ACD2CC /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D6842640370500ACD2CC /* RingShape.swift */; };
+		4AA5D68E26403F3400ACD2CC /* PersonalWeeklyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D68D26403F3400ACD2CC /* PersonalWeeklyCard.swift */; };
 		4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9625F2B2BD00CC5536 /* MapView.swift */; };
 		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
 		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
@@ -81,6 +95,20 @@
 		4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStatComponent.swift; sourceTree = "<group>"; };
 		4A9D18A02637052300ED26AC /* Date+Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatter.swift"; sourceTree = "<group>"; };
 		4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitsTableComponent.swift; sourceTree = "<group>"; };
+		4A9D18A72638FBA400ED26AC /* MusicLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicLibrary.swift; sourceTree = "<group>"; };
+		4A9D18AB2639A0AE00ED26AC /* RunsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsViewModel.swift; sourceTree = "<group>"; };
+		4A9D18D02639D4F200ED26AC /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		4A9D18D32639D83B00ED26AC /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		4A9D18D62639DB0300ED26AC /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		4A9D18D9263A324800ED26AC /* HomeScreenStatViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenStatViewComponent.swift; sourceTree = "<group>"; };
+		4A9D18DC263A7B1700ED26AC /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		4AA5D664263B531500ACD2CC /* WeatherCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCard.swift; sourceTree = "<group>"; };
+		4AA5D667263B553500ACD2CC /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		4AA5D678263F6FC100ACD2CC /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
+		4AA5D67C263F70CE00ACD2CC /* Follow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follow.swift; sourceTree = "<group>"; };
+		4AA5D6802640369E00ACD2CC /* PersonalRingComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalRingComponent.swift; sourceTree = "<group>"; };
+		4AA5D6842640370500ACD2CC /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
+		4AA5D68D26403F3400ACD2CC /* PersonalWeeklyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalWeeklyCard.swift; sourceTree = "<group>"; };
 		4AA87B9625F2B2BD00CC5536 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
 		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
@@ -138,6 +166,7 @@
 		4A175BA625E476E20015062D /* Finetic */ = {
 			isa = PBXGroup;
 			children = (
+				4A9D18AA2639A08A00ED26AC /* ViewModels */,
 				4A16EB6326321B7F0068A214 /* Coordinators */,
 				4A93E40925F143810054B104 /* Components */,
 				4A8484AE25E53F4600F50FD4 /* Extensions */,
@@ -175,6 +204,7 @@
 				4AB6FA5B25F40E770040370C /* WorkoutDetailsView.swift */,
 				4A9D18942635FE8100ED26AC /* RunDetailsView.swift */,
 				4A9D18972636DF8900ED26AC /* RunInProgressView.swift */,
+				4A9D18D62639DB0300ED26AC /* UserProfile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -182,6 +212,7 @@
 		4A175BB825E477CA0015062D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4AA5D67B263F70AC00ACD2CC /* Followers+Following */,
 				4AC4CE0F2634A0F7003C752C /* Utilities */,
 				4A175BBD25E478010015062D /* Run.swift */,
 				4A93E41825F149B90054B104 /* User.swift */,
@@ -197,6 +228,8 @@
 				4A16EB6426321CA70068A214 /* FineticVideoService.swift */,
 				4AC4CE06263371E2003C752C /* RunsService.swift */,
 				4A16EB5A263118BC0068A214 /* SessionStore.swift */,
+				4A9D18D32639D83B00ED26AC /* SearchService.swift */,
+				4AA5D678263F6FC100ACD2CC /* SocialService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -223,6 +256,7 @@
 		4A93E40925F143810054B104 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				4AA5D683264036F500ACD2CC /* Shapes */,
 				4A93E40A25F143930054B104 /* FormField.swift */,
 				4AA87B9625F2B2BD00CC5536 /* MapView.swift */,
 				4AA87BA525F2EDF800CC5536 /* RunCard.swift */,
@@ -232,8 +266,38 @@
 				4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */,
 				4A9D189D2636FDAE00ED26AC /* RunStatComponent.swift */,
 				4A9D18A326370C8100ED26AC /* SplitsTableComponent.swift */,
+				4A9D18D02639D4F200ED26AC /* SearchBar.swift */,
+				4A9D18D9263A324800ED26AC /* HomeScreenStatViewComponent.swift */,
+				4AA5D664263B531500ACD2CC /* WeatherCard.swift */,
+				4AA5D667263B553500ACD2CC /* AppColors.swift */,
+				4AA5D6802640369E00ACD2CC /* PersonalRingComponent.swift */,
+				4AA5D68D26403F3400ACD2CC /* PersonalWeeklyCard.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4A9D18AA2639A08A00ED26AC /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4A9D18AB2639A0AE00ED26AC /* RunsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4AA5D67B263F70AC00ACD2CC /* Followers+Following */ = {
+			isa = PBXGroup;
+			children = (
+				4AA5D67C263F70CE00ACD2CC /* Follow.swift */,
+			);
+			path = "Followers+Following";
+			sourceTree = "<group>";
+		};
+		4AA5D683264036F500ACD2CC /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				4AA5D6842640370500ACD2CC /* RingShape.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 		4AC4CE0F2634A0F7003C752C /* Utilities */ = {
@@ -241,6 +305,8 @@
 			children = (
 				4A9D18912635E5FC00ED26AC /* CreateRunHelperFunctions.swift */,
 				4A9D189A2636E44600ED26AC /* StopWatchManager.swift */,
+				4A9D18A72638FBA400ED26AC /* MusicLibrary.swift */,
+				4A9D18DC263A7B1700ED26AC /* NetworkMonitor.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -408,11 +474,14 @@
 				4AB6FA5F25F41C4E0040370C /* ButtonComp.swift in Sources */,
 				4AB6FA4625F3E20B0040370C /* FitnessCardView.swift in Sources */,
 				4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */,
+				4AA5D665263B531500ACD2CC /* WeatherCard.swift in Sources */,
 				4A9D18982636DF8900ED26AC /* RunInProgressView.swift in Sources */,
 				4A9D18A426370C8100ED26AC /* SplitsTableComponent.swift in Sources */,
 				4A25331125E9B4C50000A90B /* Finetic.swift in Sources */,
+				4AA5D668263B553500ACD2CC /* AppColors.swift in Sources */,
 				4A16EB6526321CA70068A214 /* FineticVideoService.swift in Sources */,
 				4A93E40B25F143930054B104 /* FormField.swift in Sources */,
+				4A9D18D72639DB0300ED26AC /* UserProfile.swift in Sources */,
 				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
 				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
 				4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */,
@@ -420,16 +489,27 @@
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A8C097F262600DF002FFB2A /* SignupView.swift in Sources */,
 				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
+				4A9D18D12639D4F300ED26AC /* SearchBar.swift in Sources */,
 				4A9D18A12637052300ED26AC /* Date+Formatter.swift in Sources */,
 				4A9D189B2636E44600ED26AC /* StopWatchManager.swift in Sources */,
+				4A9D18DD263A7B1A00ED26AC /* NetworkMonitor.swift in Sources */,
 				4A16EB612631E90C0068A214 /* NewRunMapViewCoordinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
 				4AB6FA5125F3FCDF0040370C /* Workout.swift in Sources */,
+				4AA5D6852640370500ACD2CC /* RingShape.swift in Sources */,
+				4AA5D6812640369E00ACD2CC /* PersonalRingComponent.swift in Sources */,
+				4AA5D67D263F70CE00ACD2CC /* Follow.swift in Sources */,
+				4A9D18A82638FBA500ED26AC /* MusicLibrary.swift in Sources */,
 				4A175BBE25E478010015062D /* Run.swift in Sources */,
 				4A16EB5E2631E88C0068A214 /* NewRunMapView.swift in Sources */,
 				4A175BA825E476E20015062D /* FineticApp.swift in Sources */,
 				4AC4CE07263371E2003C752C /* RunsService.swift in Sources */,
+				4A9D18D42639D83B00ED26AC /* SearchService.swift in Sources */,
+				4AA5D679263F6FC100ACD2CC /* SocialService.swift in Sources */,
+				4AA5D68E26403F3400ACD2CC /* PersonalWeeklyCard.swift in Sources */,
+				4A9D18AC2639A0AE00ED26AC /* RunsViewModel.swift in Sources */,
 				4A9D189E2636FDAE00ED26AC /* RunStatComponent.swift in Sources */,
+				4A9D18DA263A324900ED26AC /* HomeScreenStatViewComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

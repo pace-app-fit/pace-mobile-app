@@ -47,8 +47,8 @@
 	</array>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>We&apos;ll use this to map your runs</string>
-	<key></key>
-	<string></string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>We&apos;ll use this to let you control your music in app</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

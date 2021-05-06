@@ -35,4 +35,12 @@ class StopWatchManager: ObservableObject {
         case running, pause, stopped
     }
     
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+      return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    func printSecondsToHoursMinutesSeconds (seconds:Int) -> String {
+        let (h, m, s) = secondsToHoursMinutesSeconds(seconds: seconds)
+        return String(format: "%02i:%02i:%02i", h, m, s)
+    }
+    
 }

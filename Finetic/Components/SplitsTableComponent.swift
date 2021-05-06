@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SplitsTableComponent: View {
-    var data: [UnitDistanceData]
+    var data: [UnitAnalysis]
     @Environment(\.defaultMinListRowHeight) var minRowHeight
 
     var body: some View {
@@ -17,8 +17,8 @@ struct SplitsTableComponent: View {
             Text("Elevation")
             Text("Pace")
         }
-        List(data) { item in
-            UnitDataRow(rowData: item, spacing: spacing)
+        ForEach(data, id: \.self) { row in
+            UnitDataRow(rowData: row, spacing: spacing)
         }
         .frame(minHeight: minRowHeight )
         
@@ -28,13 +28,13 @@ struct SplitsTableComponent: View {
 }
 
 struct UnitDataRow: View {
-    var rowData: UnitDistanceData
+    var rowData: UnitAnalysis
     var spacing: CGFloat
     var body: some View {
         HStack(spacing: spacing) {
             Text(rowData.kmAsString)
             Text(rowData.elevationAsString)
-//            Text(rowData.paceAsString)
+            Text(rowData.paceAsString)
     
         }
     }

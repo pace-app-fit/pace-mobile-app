@@ -13,8 +13,8 @@ struct Finetic: View {
     
     @ViewBuilder
     var body: some View {
-        NavigationView {
-            ScrollView {
+        
+            
                 VStack {
                     
                     
@@ -22,9 +22,9 @@ struct Finetic: View {
                         FitnessCardView(workout: workout)
                     }
                 }
-            }
+            
             .navigationTitle("Finetic")
-        }
+        
         
     }
 }

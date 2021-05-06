@@ -12,27 +12,34 @@ import Combine
 struct RunsView: View {
     
     @ObservedObject var tracks = RunsService()
+    @State private var value: String = " "
+    @State var users: [User] = []
+    @State var isLoading = false
+    
+    func searchUsers() {
+        isLoading = true
+        SearchService(" ").searchUser(input: value) { users in
+            self.isLoading = false
+            self.users = users
+            print(users)
+        }
+            
+    }
     
    
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    ForEach(tracks.runs ?? [], id: \.self) { track in
-                        RunCard(track: track)
-
-                    }
-                    
-                    
-                }.onAppear(perform: tracks.fetchRuns)
-                
+        VStack {
+            List {
+                ForEach(tracks.socialRuns, id: \.self) { track in
+                    RunCard(track: track)
+                        .listRowInsets(EdgeInsets())
+       
+                }
             }
-            .navigationTitle("Previous Runs")
-            
-            
+           
         }
-        .background(Color(UIColor.lightGray))
-            
+        .onAppear(perform: tracks.fetchRunsfromFriends)
+        .navigationTitle("Friends")
     }
 }
 

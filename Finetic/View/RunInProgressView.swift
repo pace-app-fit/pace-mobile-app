@@ -6,18 +6,26 @@
 //
 
 import SwiftUI
+import MediaPlayer
 
 struct RunInProgressView: View {
+    var trackName = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem?.title
+    var trackArtist = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem?.artist
+    
     @ObservedObject var locationCoordinator = NewRunCoordinator()
     @ObservedObject var timer = StopWatchManager()
     @Environment(\.presentationMode) var presentationMode
+    
+    var localTimer: String {
+        timer.printSecondsToHoursMinutesSeconds(seconds: Int(timer.secondsElapsed))
+    }
     
     var body: some View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
                     Spacer()
-                    Text(String(format: "%.2f", timer.secondsElapsed))
+                    Text(localTimer)
                         .font(.system(size: 84))
                         .bold()
                         .italic()

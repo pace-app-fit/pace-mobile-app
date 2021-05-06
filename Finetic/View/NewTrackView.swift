@@ -15,11 +15,16 @@ struct NewTrackView: View {
             
         VStack {
             Spacer()
+            HStack {
+                Spacer()
                 Button("Start run") {
                     isPresented.toggle()
                 }
                 .modifier(ButtonModifier())
                 .frame(width: geo.size.width * 0.5)
+                Spacer()
+            }
+               
             Spacer()
             }
             

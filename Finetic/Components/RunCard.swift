@@ -9,17 +9,37 @@ import SwiftUI
 
 struct RunCard: View {
     var track: Run
+    @ObservedObject var search: SearchService
+    
+    init(track: Run) {
+        self.track = track
+        self.search = SearchService(track.createdBy)
+        print(search.name)
+
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
-            
-           
+            HStack {
+                Circle()
+                    .frame(width: 45)
+                VStack(alignment: .leading) {
+                    Text(search.name)
+                        .bold()
+                    Text(track.formatedCreatedDate)
+                }
+            }
+            .padding()
             Text(track.name)
                 .font(.headline)
                 .bold()
                 .foregroundColor(.purple)
                 .padding(.leading)
             
+            
+            MapView(track: track)
+                .frame(height: 270)
+               
             HStack(spacing: 15) {
                 RunStatComponent(label: "Distance", value: track.formatedDistance)
                 Divider()
@@ -29,32 +49,21 @@ struct RunCard: View {
                             
             }
             .padding(.leading)
-            MapView(track: track)
-                .frame(height: 270)
-                .cornerRadius(cornerRadius)
-                .padding()
-            HStack(alignment: .center) {
-                Spacer()
-                NavigationLink(
-                    destination: RunDetailsView(track: track),
-                    label: {
-                        Text("View More")
-                            .foregroundColor(.secondary)
-                            .bold()
-                    })
-                
-                Spacer()
-            }
-                
-            Divider()
-          
-        }
+            .frame(maxHeight: 50)
         
+            NavigationLink(
+                destination: RunDetailsView(track: track),
+                label: {
+                    Text("View More")
+                        .foregroundColor(.secondary)
+                        .bold()
+                })
+                .padding(.horizontal)
+            
+          
     }
-    
-    var cornerRadius = CGFloat(15)
-    var largeNumber = CGFloat(42)
-    var paddingSize = CGFloat(15)
+        .frame(height: 475)
+        .padding(.bottom)
 }
 
-
+}

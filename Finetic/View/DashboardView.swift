@@ -6,18 +6,27 @@
 //
 
 import SwiftUI
-
 struct DashboardView: View {
     
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                
-            }
-            .navigationTitle("Dashboard")
-          
+        VStack(alignment: .leading) {
+            WeatherCard()
+                .padding()
+                 
+             ScrollView(.horizontal, showsIndicators: false) {
+                         HStack {
+                         HomeScreenStatViewComponent(color: Color.pink)
+                         HomeScreenStatViewComponent(color: Color.purple)
+                         HomeScreenStatViewComponent(color: Color.blue)
+
+                     }
+                 }
+                 .navigationTitle("Dashboard")
         }
+           
+          
+        
        
         
        

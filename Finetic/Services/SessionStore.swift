@@ -10,12 +10,33 @@ import Combine
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SessionStore: ObservableObject {
+    var didChange = PassthroughSubject<SessionStore, Never>()
+    @Published var session: User? { didSet { self.didChange.send(self) }}
+    var handle: AuthStateDidChangeListenerHandle?
+    
     @Published var currentUser = Auth.auth().currentUser
     @Published var isSignedIn = (Auth.auth().currentUser != nil)
+    var db = Firestore.firestore()
     
-//    var firestoreId = getUserId(userID: Auth.auth().currentUser?.uid ?? "")
+    func listen () {
+            handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+                if let user = user {
+                    print("Got user: \(user.email!)")
+                    let userDocument = self.db.collection("users").document(user.uid)
+                    userDocument.getDocument { (doc, err) in
+                        guard let decodedUser = doc?.data() else {return}
+                        self.session = try? User(fromDictionary: decodedUser)
+                        
+                    }
+                    
+                } else {
+                    self.session = nil
+                }
+            }
+        }
     
     var firestoreID: DocumentReference {
         Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "")
@@ -41,9 +62,9 @@ class SessionStore: ObservableObject {
             
             guard let userId = authData?.user.uid else {return}
 //            let firestoreID = self.getUserId(userID: userId)
-            let user = User.init(uid: userId, email: email, firstName: firstname, lastName: lastName)
+            let newUser = User(uid: userId, email: email, firstName: firstname, lastName: lastName)
             
-            guard let dict = try?user.asDictionary() else {return}
+            guard let dict = try?newUser.asDictionary() else {return}
             
             self.firestoreID.setData(dict) { err in
                 if err != nil {
@@ -94,13 +115,19 @@ class SessionStore: ObservableObject {
         }
         }}
     
-    func logout() {
+    func logout()  {
         do {
             try Auth.auth().signOut()
+            self.session = nil
         } catch {
-            
         }
     }
+    
+    func unbind () {
+            if let handle = handle {
+                Auth.auth().removeStateDidChangeListener(handle)
+            }
+        }
     
     
 }

@@ -6,7 +6,8 @@ target 'Finetic' do
   use_frameworks!
 
   # Pods for Finetic
-pod 'Alamofire', '~> 5.2'
+pod 'Resolver'
+ pod 'Disk', '~> 0.6.4'
 pod 'URLImage'
 pod 'Firebase/Auth'
 pod 'FirebaseUI/Google'
@@ -15,5 +16,6 @@ pod 'FirebaseUI/OAuth' # Used for Sign in with Apple, Twitter, etc
 pod 'FirebaseUI/Phone'
 pod 'Firebase/Firestore'
 pod 'Firebase/Storage'
+pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
 
 end

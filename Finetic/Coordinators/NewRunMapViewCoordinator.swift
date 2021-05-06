@@ -15,6 +15,7 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     var enabled = false
     var manager = CLLocationManager()
     var runService: RunsService = RunsService()
+    var session = SessionStore()
     var utilities = CreateRunHelperFunctions()
     
     override init() {
@@ -31,14 +32,14 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     func stop() {
         manager.stopUpdatingLocation()
         let name = utilities.createName()
-        let newRun = NewRun(name: name, locations: newLocations!)
+        let newRun = NewRun(name: name, locations: newLocations!,createdBy: session.currentUser!.uid)
         runService.postRun(newRun: newRun)
     }
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("location updated")
-        var nextCoordinate = NewCoords(speed: locations.last?.speed ?? 0.0, heading: locations.last?.course ?? 0.0, longitude: locations.last?.coordinate.longitude ?? 0.0, accuracy: locations.last?.horizontalAccuracy ?? 0.0, latitude: locations.last?.coordinate.latitude ?? 0.0, altitude: locations.last?.altitude ?? 0.0)
+        var nextCoordinate = NewCoords(speed: locations.last?.speed ?? 0.0, longitude: locations.last?.coordinate.longitude ?? 0.0, accuracy: locations.last?.horizontalAccuracy ?? 0.0, latitude: locations.last?.coordinate.latitude ?? 0.0, altitude: locations.last?.altitude ?? 0.0)
         newLocations?.append(nextCoordinate)
        
         
