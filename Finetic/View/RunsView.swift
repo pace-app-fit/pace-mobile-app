@@ -38,7 +38,7 @@ struct RunsView: View {
             }
            
         }
-        .onAppear(perform: tracks.fetchRunsfromFriends)
+//        .onAppear(perform: tracks.fetchRunsfromFriends)
         .navigationTitle("Friends")
     }
 }

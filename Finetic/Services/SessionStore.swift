@@ -7,127 +7,72 @@
 
 import Foundation
 import Combine
-import Firebase
-import FirebaseAuth
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+import Alamofire
 
-class SessionStore: ObservableObject {
-    var didChange = PassthroughSubject<SessionStore, Never>()
-    @Published var session: User? { didSet { self.didChange.send(self) }}
-    var handle: AuthStateDidChangeListenerHandle?
+class SessionStore: ApiService, ObservableObject {
+    @Published var user: User?
+    @Published var isSignedIn = false
     
-    @Published var currentUser = Auth.auth().currentUser
-    @Published var isSignedIn = (Auth.auth().currentUser != nil)
-    var db = Firestore.firestore()
-    
-    func listen () {
-            handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-                if let user = user {
-                    print("Got user: \(user.email!)")
-                    let userDocument = self.db.collection("users").document(user.uid)
-                    userDocument.getDocument { (doc, err) in
-                        guard let decodedUser = doc?.data() else {return}
-                        self.session = try? User(fromDictionary: decodedUser)
-                        
-                    }
-                    
-                } else {
-                    self.session = nil
-                }
+    func signup(name: String,
+                userName: String,
+                email: String,
+                password:String
+               ) {
+        print("signing up...")
+        let newUser = ["name": name, "userName": userName, "password": password, "email": email]
+        AF.request("http://localhost:3000/api/v1/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(response.error)")
             }
+            guard let user = response.value?.user else {return}
+            
+            self.objectWillChange.send()
+            self.user = user
+            self.isSignedIn = true
+            UserDefaults.standard.set(response.value?.token, forKey: "token")
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(password, forKey: "password")
         }
-    
-    var firestoreID: DocumentReference {
-        Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "")
+        
     }
     
-    func signup(firstname: String, lastName: String, email: String, password:String, onSuccess: @escaping(_ user: User) -> Void, onError: @escaping(_ errorMsg: String) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) {(authData, err) in
-            
-            if let err = err as NSError? {
-                switch AuthErrorCode(rawValue: err.code) {
-                case .operationNotAllowed:
-                    onError("This is not allowed")
-                case .emailAlreadyInUse:
-                    onError("This email is already in use")
-                case .invalidEmail:
-                    onError("Please enter a valid email")
-                case .weakPassword:
-                    onError("Please enter a stronger password")
-                default:
-                    onError("Something went very wrong...")
+    func login(email: String,
+                password:String,
+               onSuccess: ((_ user: User) -> Void)? = nil,
+               onError: ((_ errorMsg: String) -> Void)? = nil) {
+        let user = ["email":email, "password":password]
+        
+        AF.request("http://localhost:3000/api/v1/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(response.error)")
+                if(onError != nil) {
+                    onError!(response.error?.localizedDescription ?? "something went wrong")
                 }
             }
-            
-            guard let userId = authData?.user.uid else {return}
-//            let firestoreID = self.getUserId(userID: userId)
-            let newUser = User(uid: userId, email: email, firstName: firstname, lastName: lastName)
-            
-            guard let dict = try?newUser.asDictionary() else {return}
-            
-            self.firestoreID.setData(dict) { err in
-                if err != nil {
-                    print(err!.localizedDescription)
-                }
-            }
-            
-                
-                
-            }
-            
-        }
-    
-    
-    func signin(email: String, password: String, onSuccess: @escaping (_ user: User) -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) {
-            (authData, error) in
-            
-            if let error = error as NSError? {
-                switch AuthErrorCode(rawValue: error.code) {
-                case .operationNotAllowed:
-                  onError("This isn't allowed")
-                case .userDisabled:
-                  onError("Your account has been disabled")
-                case .wrongPassword:
-                  onError("Wrong password or email")
-                case .invalidEmail:
-                    onError("Wrong password or email")
-                default:
-                    print("Error: \(error.localizedDescription)")
-                }
-                
-            guard let userId = authData?.user.uid else {return}
-//                let firestoreID = self.getUserId(userID: userId)
-                print(self.firestoreID)
-            
-            
-                self.firestoreID.getDocument {
-                (document, error)  in
-                
-                if let dict = document?.data() {
-                    guard let decodedUser = try? User.init(fromDictionary: dict) else {return}
-                    onSuccess(decodedUser)
-                }
-                
-            }
+            guard let user = response.value?.user else {return}
+            print(self.isSignedIn)
 
-        }
-        }}
-    
-    func logout()  {
-        do {
-            try Auth.auth().signOut()
-            self.session = nil
-        } catch {
+            self.objectWillChange.send()
+            self.user = user
+            self.isSignedIn = true
+            
+            print(self.isSignedIn)
+            UserDefaults.standard.set(response.value?.token, forKey: "token")
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(password, forKey: "password")
+            if(onSuccess != nil) {
+                onSuccess!(user)
+            }
         }
     }
     
-    func unbind () {
-            if let handle = handle {
-                Auth.auth().removeStateDidChangeListener(handle)
-            }
+    func localSignin() {
+        print("local signin...")
+        let email = UserDefaults.standard.string(forKey: "email")
+        let password = UserDefaults.standard.string(forKey: "password")
+        print(email, password)
+        if(email != nil && password != nil) {
+            login(email: email!, password: password!)
         }
-    
-    
+    }
 }

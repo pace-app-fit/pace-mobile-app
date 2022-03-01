@@ -43,9 +43,9 @@ class SocialService: ObservableObject {
     
     
     func loadUserRuns(userId: String) {
-        RunsService().fetchRuns(userId: userId) { runs in
-            self.runs = runs
-        }
+//        RunsService().fetchRuns(userId: userId) { runs in
+//            self.runs = runs
+//        }
     }
     
    

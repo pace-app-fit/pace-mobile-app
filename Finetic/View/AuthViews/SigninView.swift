@@ -14,7 +14,7 @@ struct SigninView: View {
     @State private var error: String = ""
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no 😧"
-    
+    @EnvironmentObject var auth: SessionStore
     func errorCheck() -> String? {
         if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty {
             return "Please fill in all fields"
@@ -34,8 +34,9 @@ struct SigninView: View {
             return
         }
         
-        SessionStore().signin(email: email, password: password,  onSuccess: {
+        auth.login(email: email, password: password,  onSuccess: {
             (user) in
+            print(user.email)
             self.clear()
         }, onError: {
             (errorMessage) in

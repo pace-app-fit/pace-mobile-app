@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct ResolveApplication: View {
-    @EnvironmentObject var session: SessionStore
-    
+    @StateObject var auth: SessionStore = SessionStore()
     
      var body: some View {
         Group {
-            if session.session != nil {
+            if auth.isSignedIn {
                 AppView()
+                    .environmentObject(self.auth)
+                    
             } else {
                 SignupView()
+                    .environmentObject(self.auth)
             }
-        }.onAppear(perform: session.listen)
+        }.onAppear(perform: localSignin)
         
+    }
+    
+    func localSignin() {
+        auth.localSignin()
     }
     
 }

@@ -12,9 +12,7 @@ import MapKit
 struct NewRun: Codable, Hashable {
     var name: String
     var id = UUID()
-    var locations: [NewCoords]
-    var createdAt = Date()
-    var createdBy: String
+    var coordinates: [NewCoords]
 
 }
 
@@ -22,7 +20,6 @@ struct NewRun: Codable, Hashable {
 struct NewCoords: Codable, Hashable {
     var speed, longitude, accuracy: Double
     var latitude, altitude: Double
-    var id = UUID()
     var createdAt = Date()
 }
 

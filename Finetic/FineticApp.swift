@@ -13,7 +13,7 @@ struct FineticApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     var body: some Scene {
         WindowGroup {
-            ResolveApplication().environmentObject(SessionStore())
+            ResolveApplication()
         }
     }
     

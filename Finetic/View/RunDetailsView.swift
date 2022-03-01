@@ -75,12 +75,12 @@ struct RunDetailsView: View {
                                 .onTapGesture {
                                     presentation.wrappedValue.dismiss()
                                 }, trailing: Text("Delete")
-                                    .onTapGesture {
-                                        firestore.deleteRun(run: track) { msg in
-                                            alertMsg = msg
-                                            isShowingAlert = true
-                                        }
-                                    }
+//                                    .onTapGesture {
+//                                        firestore.deleteRun(run: track) { msg in
+//                                            alertMsg = msg
+//                                            isShowingAlert = true
+//                                        }
+//                                    }
         )
         .alert(isPresented: $isShowingAlert) {
             Alert(title: Text("All done"), message: Text(alertMsg))

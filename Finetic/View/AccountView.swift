@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
-    @EnvironmentObject var session: SessionStore
+    @EnvironmentObject var auth: SessionStore
     @State var isShowingAccountDetails = false
     @ObservedObject var tracks = RunsService()
     @ObservedObject var social = SocialService()
@@ -16,7 +16,7 @@ struct AccountView: View {
     var body: some View {
        
         ScrollView(showsIndicators: false) {
-                    AccountHeader(tracks: tracks)
+            AccountHeader(user: auth.user!)
                     Text("This Week")
                         .font(.title)
                         .bold()
@@ -37,9 +37,9 @@ struct AccountView: View {
                 
               
             }
-            .onAppear {
-                social.loadUserRuns(userId: (session.session?.uid)!)
-            }
+//            .onAppear {
+//                social.loadUserRuns(userId: (session.session?.uid)!)
+//            }
 
             
     }
@@ -48,7 +48,7 @@ struct AccountView: View {
             isShowingAccountDetails = true
         }, label: {Text("Details")}))
         .sheet(isPresented: $isShowingAccountDetails) {
-            AccountDetails(session: session)
+            AccountDetails(user: auth.user!)
         }
         
 }
@@ -60,13 +60,11 @@ struct AccountView_Previews: PreviewProvider {
 }
 
 struct AccountHeader: View {
-    var tracks =  RunsService()
-    var session = SessionStore()
-    
-    func getLifeTimeKm() -> String {
-        let distance = tracks.getLifeTimekm((session.currentUser?.uid)!)
-        return String(format: "%.2f", distance)
-    }
+    var user: User
+//    func getLifeTimeKm() -> String {
+//        let distance = tracks.getLifeTimekm((session.currentUser?.uid)!)
+//        return String(format: "%.2f", distance)
+//    }
     
     var body: some View {
             HStack(alignment: .center) {
@@ -79,7 +77,7 @@ struct AccountHeader: View {
                 VStack {
                     RoundedRectangle(cornerRadius: 15)
                         .frame(width: 100, height: 100)
-                    Text("Angela Valdez")
+                    Text(user.userName)
                         .bold()
                 }
                 Spacer()
@@ -95,18 +93,18 @@ struct AccountHeader: View {
 
 
 struct AccountDetails: View {
-    var session: SessionStore
+    var user: User
     var body: some View {
         Form {
             Section(header: Text("Details")) {
                 HStack{
-                    Text(session.session?.firstName ?? "Log in")
+                    Text(user.userName )
                         .font(.headline)
                     Spacer()
                         
                 }
                 HStack{
-                    Text(session.session?.email ?? "Log in")
+                    Text(user.email )
                         .font(.headline)
                     Spacer()
                         
@@ -116,7 +114,7 @@ struct AccountDetails: View {
             
             Section(header: Text("Log out")) {
                 Text("Signout")
-                    .onTapGesture(perform: session.logout)
+//                    .onTapGesture(perform: session.logout)
             }
         }
     }

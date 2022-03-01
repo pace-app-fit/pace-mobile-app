@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0411640427CDA41A00B714C6 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411640327CDA41A00B714C6 /* SessionViewModel.swift */; };
+		0439147427CE577A00D8C5AB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439147327CE577A00D8C5AB /* Request.swift */; };
+		0439147727CE7B5E00D8C5AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0439147627CE7B5E00D8C5AB /* Alamofire */; };
 		4A16EB5B263118BC0068A214 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB5A263118BC0068A214 /* SessionStore.swift */; };
 		4A16EB5E2631E88C0068A214 /* NewRunMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */; };
 		4A16EB612631E90C0068A214 /* NewRunMapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB602631E90C0068A214 /* NewRunMapViewCoordinator.swift */; };
@@ -64,6 +67,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0411640327CDA41A00B714C6 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		0439147327CE577A00D8C5AB /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		4A16EB5A263118BC0068A214 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunMapView.swift; sourceTree = "<group>"; };
 		4A16EB602631E90C0068A214 /* NewRunMapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunMapViewCoordinator.swift; sourceTree = "<group>"; };
@@ -130,12 +135,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8391594E9EF4DE065BB6A2 /* Pods_Finetic.framework in Frameworks */,
+				0439147727CE7B5E00D8C5AB /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0439147227CE576700D8C5AB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0439147327CE577A00D8C5AB /* Request.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		4A16EB6326321B7F0068A214 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +180,7 @@
 		4A175BA625E476E20015062D /* Finetic */ = {
 			isa = PBXGroup;
 			children = (
+				0439147227CE576700D8C5AB /* Protocols */,
 				4A9D18AA2639A08A00ED26AC /* ViewModels */,
 				4A16EB6326321B7F0068A214 /* Coordinators */,
 				4A93E40925F143810054B104 /* Components */,
@@ -280,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9D18AB2639A0AE00ED26AC /* RunsViewModel.swift */,
+				0411640327CDA41A00B714C6 /* SessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -347,6 +363,9 @@
 			dependencies = (
 			);
 			name = Finetic;
+			packageProductDependencies = (
+				0439147627CE7B5E00D8C5AB /* Alamofire */,
+			);
 			productName = Finetic;
 			productReference = 4A175BA425E476E20015062D /* Finetic.app */;
 			productType = "com.apple.product-type.application";
@@ -374,6 +393,9 @@
 				Base,
 			);
 			mainGroup = 4A175B9B25E476E20015062D;
+			packageReferences = (
+				0439147527CE7B5E00D8C5AB /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 4A175BA525E476E20015062D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -461,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9D18952635FE8200ED26AC /* RunDetailsView.swift in Sources */,
+				0439147427CE577A00D8C5AB /* Request.swift in Sources */,
 				4A25330E25E9B3480000A90B /* DashboardView.swift in Sources */,
 				4A93E40125F140980054B104 /* SigninView.swift in Sources */,
 				4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */,
@@ -485,6 +508,7 @@
 				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
 				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
 				4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */,
+				0411640427CDA41A00B714C6 /* SessionViewModel.swift in Sources */,
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A8C097F262600DF002FFB2A /* SignupView.swift in Sources */,
@@ -700,6 +724,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0439147527CE7B5E00D8C5AB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0439147627CE7B5E00D8C5AB /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0439147527CE7B5E00D8C5AB /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A175B9C25E476E20015062D /* Project object */;
 }

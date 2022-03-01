@@ -32,7 +32,7 @@ struct UserProfile: View {
                        
                     })
                 if !isLoading {
-                    ForEach(users, id: \.uid) { user in
+                    ForEach(users, id: \.id) { user in
                         HStack {
                             Text(user.email)
                         }

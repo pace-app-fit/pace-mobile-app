@@ -32,7 +32,7 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     func stop() {
         manager.stopUpdatingLocation()
         let name = utilities.createName()
-        let newRun = NewRun(name: name, locations: newLocations!,createdBy: session.currentUser!.uid)
+        let newRun = NewRun(name: name, coordinates: newLocations!)
         runService.postRun(newRun: newRun)
     }
     

@@ -10,15 +10,15 @@ import SwiftUI
 struct SignupView: View {
     @State private var email = ""
     @State private var password = ""
-    @State private var firstName = ""
-    @State private var lastName = ""
+    @State private var name = ""
+    @State private var userName = ""
     @State private var error: String = ""
     @State private var showingAlert = false
     @State private var alertTitle: String = "Oh no 😧"
     
     func errorCheck() -> String? {
-        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty || firstName.trimmingCharacters(in: .whitespaces).isEmpty ||
-            lastName.trimmingCharacters(in: .whitespaces).isEmpty{
+        if email.trimmingCharacters(in: .whitespaces).isEmpty || password.trimmingCharacters(in: .whitespaces).isEmpty || name.trimmingCharacters(in: .whitespaces).isEmpty ||
+            userName.trimmingCharacters(in: .whitespaces).isEmpty{
             return "Please fill in all fields and provide a profile image"
         }
         return nil
@@ -31,21 +31,15 @@ struct SignupView: View {
             return
         }
         
-        SessionStore().signup(firstname: firstName, lastName: lastName, email: email, password: password, onSuccess: {(user) in self.clear()}, onError: {
-            (errorMessage) in
-            print("Error \(errorMessage)")
-            self.error = errorMessage
-            self.showingAlert = true
-            return
-        })
+        SessionStore().signup(name: name, userName: userName, email: email, password: password)
         
     }
     
     func clear() {
         self.email = ""
-        self.firstName = ""
+        self.name = ""
         self.password = ""
-        self.lastName = ""
+        self.userName = ""
     }
     
     
@@ -66,8 +60,8 @@ struct SignupView: View {
                     VStack {
                       
                     Group {
-                        FormField(value: $firstName, icon: "person", placeholder: "First name")
-                        FormField(value: $lastName, icon: "person", placeholder: "Last name")
+                        FormField(value: $name, icon: "person", placeholder: "Name")
+                        FormField(value: $userName, icon: "person", placeholder: "User Name")
                         FormField(value: $email, icon: "mail", placeholder: "Email")
                         FormField(value: $password, icon: "lock", placeholder: "Password", isSecure: true)
                     }
