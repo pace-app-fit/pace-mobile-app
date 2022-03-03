@@ -1,8 +1,8 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
-project 'Finetic.xcodeproj'
+project 'Pace.xcodeproj'
 
-target 'Finetic' do
+target 'Pace' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
