@@ -57,10 +57,10 @@ struct RunDetailsView: View {
                 .padding(.top, 0)
                 MapView(track: track)
                     .frame(height: 270)
-                Text("Splits")
-                    .font(.title)
-                    .padding(.vertical)
-                SplitsTableComponent(data: track.unitAnalysis)
+//                Text("Splits")
+//                    .font(.title)
+//                    .padding(.vertical)
+//                SplitsTableComponent(data: track.unitAnalysis)
                 
                 
             }

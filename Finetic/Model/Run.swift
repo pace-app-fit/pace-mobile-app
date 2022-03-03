@@ -3,12 +3,9 @@ import MapKit
 
 // MARK: - WelcomeElement
 struct Run: Codable, Hashable, Equatable {
-    let name, id: String
-    let locations: [Location]
+    let name, id, userId, createdAt: String
+    let coordinates: [Coordinate]
     let time, distance, averagePace, averageSpeed: Double
-    let createdAt: Double
-    let createdBy: String
-    let unitAnalysis: [UnitAnalysis]
     let totalElevation: TotalElevation
 
     
@@ -31,8 +28,9 @@ struct Run: Codable, Hashable, Equatable {
     }
     
     var formatedCreatedDate: String {
-        let date = Date(timeIntervalSinceReferenceDate: createdAt)
-        return date.getFormattedDate(format: "EEEE, MMM d, yyyy")
+//        let date = Date(timeIntervalSinceReferenceDate: createdAt)
+//        return date.getFormattedDate(format: "EEEE, MMM d, yyyy")
+        return createdAt
     }
     
     var formatedSpeed: String {
@@ -55,7 +53,7 @@ struct Run: Codable, Hashable, Equatable {
     var clCoordinates: [CLLocationCoordinate2D] {
         get {
             var coords = [CLLocationCoordinate2D]()
-            for i in locations {
+            for i in coordinates {
                 coords.append(CLLocationCoordinate2D(latitude: CLLocationDegrees(i.latitude), longitude: CLLocationDegrees(i.longitude)))
             }
             
@@ -87,47 +85,13 @@ struct Run: Codable, Hashable, Equatable {
         let centralLatitude = atan2(z, centralSquareRoot)
         
         return CLLocationCoordinate2D(latitude: centralLatitude * 180 / Double.pi, longitude: centralLongitude * 180 / Double.pi)
-        
     }
 }
 
 
 // MARK: - Coords
-struct Location: Codable, Hashable, Equatable {
-    let longitude: Double
-    let id: String
-    let latitude, createdAt, accuracy, altitude: Double
-
-//    let altitude, accuracy: Double
-//    let latitude, longitude, createdAt: Double
-//    let heading: CalculatedDataType?
-//    let heading: Int
-//    let id: String
-//
-//    struct CalculatedDataType: Codable, Equatable, Hashable {
-//        var doubleValue: Double?
-//        var intValueXY: Int?
-//
-//            init(from decoder: Decoder) throws {
-//                let container = try decoder.singleValueContainer()
-//                if let doubleValue = try? container.decode(Double.self) {
-//                    self.doubleValue = doubleValue
-//                } else if let intValue = try? container.decode(Int.self) {
-//                    self.intValueXY = intValue
-//                }
-//            }
-//        func encode(to encoder: Encoder) throws {
-//                var container = encoder.singleValueContainer()
-//                if let doubleValue = self.doubleValue {
-//                    try container.encode(doubleValue)
-//                } else if let intValue = self.intValueXY{
-//                    try container.encode(intValue)
-//                } else {
-//                    try container.encodeNil()
-//                }
-//            }
-//    }
-    
+struct Coordinate: Codable, Hashable, Equatable {
+    let latitude, longitude, accuracy, altitude: Double
 }
 
 struct UnitAnalysis: Codable, Hashable, Equatable {

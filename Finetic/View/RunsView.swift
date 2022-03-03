@@ -30,7 +30,7 @@ struct RunsView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(tracks.socialRuns, id: \.self) { track in
+                ForEach(tracks.feed, id: \.self) { track in
                     RunCard(track: track)
                         .listRowInsets(EdgeInsets())
        
@@ -38,7 +38,7 @@ struct RunsView: View {
             }
            
         }
-//        .onAppear(perform: tracks.fetchRunsfromFriends)
+        .onAppear(perform: tracks.getFeed)
         .navigationTitle("Friends")
     }
 }

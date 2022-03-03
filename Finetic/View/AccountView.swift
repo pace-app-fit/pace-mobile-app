@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct AccountView: View {
     @EnvironmentObject var auth: SessionStore
@@ -17,13 +18,13 @@ struct AccountView: View {
        
         ScrollView(showsIndicators: false) {
             AccountHeader(user: auth.user!)
-                    Text("This Week")
-                        .font(.title)
-                        .bold()
-                        .padding(.leading)
-                    PersonalWeeklyCard()
-                        .frame(height: 150)
-                        .padding(.horizontal)
+//                    Text("This Week")
+//                        .font(.title)
+//                        .bold()
+//                        .padding(.leading)
+//                    PersonalWeeklyCard()
+//                        .frame(height: 150)
+//                        .padding(.horizontal)
                     Text("Previous runs")
                         .font(.title)
                         .bold()
@@ -31,15 +32,15 @@ struct AccountView: View {
                     Spacer()
             VStack{
               
-                ForEach(social.runs, id: \.id) { track in
+                ForEach(tracks.myRuns, id: \.id) { track in
                         RunCard(track: track)
                         }
                 
               
             }
-//            .onAppear {
-//                social.loadUserRuns(userId: (session.session?.uid)!)
-//            }
+            .onAppear {
+                tracks.getSelfRuns()
+            }
 
             
     }
@@ -70,19 +71,25 @@ struct AccountHeader: View {
             HStack(alignment: .center) {
                 Spacer()
                 VStack {
-                    Text("27")
-                    Text("Coins")
+                    Text("0")
+                    Text("Followers")
                 }
                 Spacer()
+               
                 VStack {
-                    RoundedRectangle(cornerRadius: 15)
-                        .frame(width: 100, height: 100)
+                    URLImage(url: URL(string: user.profileImage)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 100, height: 100)
+                            .cornerRadius(15)
+                    }
                     Text(user.userName)
                         .bold()
                 }
                 Spacer()
                 VStack {
-                    Text("598")
+                    Text("0")
                     Text("Followers")
                 }
                 Spacer()

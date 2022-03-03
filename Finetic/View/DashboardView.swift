@@ -10,15 +10,18 @@ struct DashboardView: View {
     
     
     var body: some View {
-        VStack(alignment: .leading) {
-            WeatherCard()
-                .padding()
+        VStack(alignment: .center) {
+//            WeatherCard()
+//                .padding()
+            Text("In progress...")
+                .bold()
+
                  
              ScrollView(.horizontal, showsIndicators: false) {
                          HStack {
-                         HomeScreenStatViewComponent(color: Color.pink)
-                         HomeScreenStatViewComponent(color: Color.purple)
-                         HomeScreenStatViewComponent(color: Color.blue)
+//                         HomeScreenStatViewComponent(color: Color.pink)
+//                         HomeScreenStatViewComponent(color: Color.purple)
+//                         HomeScreenStatViewComponent(color: Color.blue)
 
                      }
                  }

@@ -45,13 +45,9 @@ struct MapView: UIViewRepresentable {
 
     func updateOverlays(from mapView: MKMapView) {
         mapView.removeOverlays(mapView.overlays)
-        let polyline = MKPolyline(coordinates: track.clCoordinates, count: track.locations.count)
+        let polyline = MKPolyline(coordinates: track.clCoordinates, count: track.coordinates.count)
         mapView.addOverlay(polyline)
-
     }
-    
-    
-   
-    
+  
 }
 

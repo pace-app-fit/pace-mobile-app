@@ -7,6 +7,7 @@
 
 import SwiftUI
 import MediaPlayer
+import MapKit
 
 struct RunInProgressView: View {
     var trackName = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem?.title
@@ -16,14 +17,23 @@ struct RunInProgressView: View {
     @ObservedObject var timer = StopWatchManager()
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var defaultRegion = MKCoordinateRegion(
+        // Apple Park
+        center: CLLocationCoordinate2D(latitude: 51, longitude: -114.1161533106428),
+        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+    )
+    
     var localTimer: String {
         timer.printSecondsToHoursMinutesSeconds(seconds: Int(timer.secondsElapsed))
     }
+    
     
     var body: some View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
+                    NewRunMapView(region: locationCoordinator.region ?? defaultRegion, lineCoordinates: locationCoordinator.lineCoordinates)
+                        .frame(height: 400)
                     Spacer()
                     Text(localTimer)
                         .font(.system(size: 84))

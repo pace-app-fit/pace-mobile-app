@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseFirestore
 
 struct Session: Codable {
     var token: String

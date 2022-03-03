@@ -9,12 +9,9 @@ import SwiftUI
 
 struct RunCard: View {
     var track: Run
-    @ObservedObject var search: SearchService
     
     init(track: Run) {
         self.track = track
-        self.search = SearchService(track.createdBy)
-        print(search.name)
 
     }
     
@@ -24,8 +21,8 @@ struct RunCard: View {
                 Circle()
                     .frame(width: 45)
                 VStack(alignment: .leading) {
-                    Text(search.name)
-                        .bold()
+//                    Text(search.name)
+//                        .bold()
                     Text(track.formatedCreatedDate)
                 }
             }

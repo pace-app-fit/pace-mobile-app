@@ -9,9 +9,10 @@ import Foundation
 import Combine
 import Alamofire
 
-class SessionStore: ApiService, ObservableObject {
+class SessionStore: ObservableObject {
     @Published var user: User?
-    @Published var isSignedIn = false
+    @Published var isSignedIn: Bool? = nil
+    private var host = "http://3.96.220.190:3000"
     
     func signup(name: String,
                 userName: String,
@@ -20,7 +21,7 @@ class SessionStore: ApiService, ObservableObject {
                ) {
         print("signing up...")
         let newUser = ["name": name, "userName": userName, "password": password, "email": email]
-        AF.request("http://localhost:3000/api/v1/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+        AF.request("\(host)/api/v1/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
                 print("AN error occores \(response.error)")
             }
@@ -32,6 +33,7 @@ class SessionStore: ApiService, ObservableObject {
             UserDefaults.standard.set(response.value?.token, forKey: "token")
             UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set(password, forKey: "password")
+            UserDefaults.standard.set(user.id, forKey: "userId")
         }
         
     }
@@ -42,7 +44,7 @@ class SessionStore: ApiService, ObservableObject {
                onError: ((_ errorMsg: String) -> Void)? = nil) {
         let user = ["email":email, "password":password]
         
-        AF.request("http://localhost:3000/api/v1/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+        AF.request("\(host)/api/v1/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
                 print("AN error occores \(response.error)")
                 if(onError != nil) {
@@ -60,6 +62,7 @@ class SessionStore: ApiService, ObservableObject {
             UserDefaults.standard.set(response.value?.token, forKey: "token")
             UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set(password, forKey: "password")
+            UserDefaults.standard.set(user.id, forKey: "userId")
             if(onSuccess != nil) {
                 onSuccess!(user)
             }
@@ -70,9 +73,10 @@ class SessionStore: ApiService, ObservableObject {
         print("local signin...")
         let email = UserDefaults.standard.string(forKey: "email")
         let password = UserDefaults.standard.string(forKey: "password")
-        print(email, password)
         if(email != nil && password != nil) {
             login(email: email!, password: password!)
+        } else {
+            self.isSignedIn = false
         }
     }
 }

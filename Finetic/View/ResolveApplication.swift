@@ -12,13 +12,16 @@ struct ResolveApplication: View {
     
      var body: some View {
         Group {
-            if auth.isSignedIn {
-                AppView()
-                    .environmentObject(self.auth)
-                    
+            if auth.isSignedIn == nil {
+                EmptyView()
             } else {
-                SignupView()
-                    .environmentObject(self.auth)
+                if(auth.isSignedIn!) {
+                    AppView()
+                        .environmentObject(self.auth)
+                } else {
+                    SignupView()
+                         .environmentObject(self.auth)
+                }
             }
         }.onAppear(perform: localSignin)
         

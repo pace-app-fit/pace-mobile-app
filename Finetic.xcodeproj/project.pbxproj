@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0411640427CDA41A00B714C6 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411640327CDA41A00B714C6 /* SessionViewModel.swift */; };
-		0439147427CE577A00D8C5AB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0439147327CE577A00D8C5AB /* Request.swift */; };
 		0439147727CE7B5E00D8C5AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0439147627CE7B5E00D8C5AB /* Alamofire */; };
 		4A16EB5B263118BC0068A214 /* SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB5A263118BC0068A214 /* SessionStore.swift */; };
 		4A16EB5E2631E88C0068A214 /* NewRunMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */; };
-		4A16EB612631E90C0068A214 /* NewRunMapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB602631E90C0068A214 /* NewRunMapViewCoordinator.swift */; };
+		4A16EB612631E90C0068A214 /* NewRunCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB602631E90C0068A214 /* NewRunCoordinator.swift */; };
 		4A16EB6526321CA70068A214 /* FineticVideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A16EB6426321CA70068A214 /* FineticVideoService.swift */; };
 		4A175BA825E476E20015062D /* FineticApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A175BA725E476E20015062D /* FineticApp.swift */; };
 		4A175BAA25E476E20015062D /* RunsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A175BA925E476E20015062D /* RunsView.swift */; };
@@ -54,7 +53,7 @@
 		4AA5D6852640370500ACD2CC /* RingShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D6842640370500ACD2CC /* RingShape.swift */; };
 		4AA5D68E26403F3400ACD2CC /* PersonalWeeklyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA5D68D26403F3400ACD2CC /* PersonalWeeklyCard.swift */; };
 		4AA87B9725F2B2BD00CC5536 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9625F2B2BD00CC5536 /* MapView.swift */; };
-		4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */; };
+		4AA87B9A25F2B45A00CC5536 /* MapViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87B9925F2B45A00CC5536 /* MapViewCoordinator.swift */; };
 		4AA87BA625F2EDF800CC5536 /* RunCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA87BA525F2EDF800CC5536 /* RunCard.swift */; };
 		4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4225F3A56C0040370C /* NewRun.swift */; };
 		4AB6FA4625F3E20B0040370C /* FitnessCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB6FA4525F3E20A0040370C /* FitnessCardView.swift */; };
@@ -68,10 +67,9 @@
 
 /* Begin PBXFileReference section */
 		0411640327CDA41A00B714C6 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
-		0439147327CE577A00D8C5AB /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		4A16EB5A263118BC0068A214 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		4A16EB5D2631E88C0068A214 /* NewRunMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunMapView.swift; sourceTree = "<group>"; };
-		4A16EB602631E90C0068A214 /* NewRunMapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunMapViewCoordinator.swift; sourceTree = "<group>"; };
+		4A16EB602631E90C0068A214 /* NewRunCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunCoordinator.swift; sourceTree = "<group>"; };
 		4A16EB6426321CA70068A214 /* FineticVideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineticVideoService.swift; sourceTree = "<group>"; };
 		4A175BA425E476E20015062D /* Finetic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Finetic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A175BA725E476E20015062D /* FineticApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FineticApp.swift; sourceTree = "<group>"; };
@@ -115,7 +113,7 @@
 		4AA5D6842640370500ACD2CC /* RingShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingShape.swift; sourceTree = "<group>"; };
 		4AA5D68D26403F3400ACD2CC /* PersonalWeeklyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalWeeklyCard.swift; sourceTree = "<group>"; };
 		4AA87B9625F2B2BD00CC5536 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCooedinator.swift; sourceTree = "<group>"; };
+		4AA87B9925F2B45A00CC5536 /* MapViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewCoordinator.swift; sourceTree = "<group>"; };
 		4AA87BA525F2EDF800CC5536 /* RunCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunCard.swift; sourceTree = "<group>"; };
 		4AB6FA4225F3A56C0040370C /* NewRun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRun.swift; sourceTree = "<group>"; };
 		4AB6FA4525F3E20A0040370C /* FitnessCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessCardView.swift; sourceTree = "<group>"; };
@@ -142,19 +140,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0439147227CE576700D8C5AB /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				0439147327CE577A00D8C5AB /* Request.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		4A16EB6326321B7F0068A214 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				4AA87B9925F2B45A00CC5536 /* MapViewCooedinator.swift */,
-				4A16EB602631E90C0068A214 /* NewRunMapViewCoordinator.swift */,
+				4AA87B9925F2B45A00CC5536 /* MapViewCoordinator.swift */,
+				4A16EB602631E90C0068A214 /* NewRunCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -180,7 +170,6 @@
 		4A175BA625E476E20015062D /* Finetic */ = {
 			isa = PBXGroup;
 			children = (
-				0439147227CE576700D8C5AB /* Protocols */,
 				4A9D18AA2639A08A00ED26AC /* ViewModels */,
 				4A16EB6326321B7F0068A214 /* Coordinators */,
 				4A93E40925F143810054B104 /* Components */,
@@ -483,7 +472,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9D18952635FE8200ED26AC /* RunDetailsView.swift in Sources */,
-				0439147427CE577A00D8C5AB /* Request.swift in Sources */,
 				4A25330E25E9B3480000A90B /* DashboardView.swift in Sources */,
 				4A93E40125F140980054B104 /* SigninView.swift in Sources */,
 				4A93E41225F148890054B104 /* ResolveApplication.swift in Sources */,
@@ -512,12 +500,12 @@
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,
 				4A8C097F262600DF002FFB2A /* SignupView.swift in Sources */,
-				4AA87B9A25F2B45A00CC5536 /* MapViewCooedinator.swift in Sources */,
+				4AA87B9A25F2B45A00CC5536 /* MapViewCoordinator.swift in Sources */,
 				4A9D18D12639D4F300ED26AC /* SearchBar.swift in Sources */,
 				4A9D18A12637052300ED26AC /* Date+Formatter.swift in Sources */,
 				4A9D189B2636E44600ED26AC /* StopWatchManager.swift in Sources */,
 				4A9D18DD263A7B1A00ED26AC /* NetworkMonitor.swift in Sources */,
-				4A16EB612631E90C0068A214 /* NewRunMapViewCoordinator.swift in Sources */,
+				4A16EB612631E90C0068A214 /* NewRunCoordinator.swift in Sources */,
 				4A175BAA25E476E20015062D /* RunsView.swift in Sources */,
 				4AB6FA5125F3FCDF0040370C /* Workout.swift in Sources */,
 				4AA5D6852640370500ACD2CC /* RingShape.swift in Sources */,
