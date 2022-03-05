@@ -8,16 +8,14 @@
 import Foundation
 import Alamofire
 
-class RunsService: ObservableObject {
+class RunsService: ApiHost, ObservableObject {
     @Published var myRuns = [Run]()
     @Published var feed = [Run]()
     var token = UserDefaults.standard.string(forKey: "token")
     var userId = UserDefaults.standard.string(forKey: "userId")
-    private var host = "http://3.96.220.190:3000"
-
 
     func postRun(newRun: NewRun) {
-        AF.request("\(host)/api/v1/runs",
+        AF.request("\(host)/runs",
                    method: .post,
                    parameters: newRun,
                    encoder: JSONParameterEncoder.default,
@@ -31,7 +29,7 @@ class RunsService: ObservableObject {
     }
     
     func getSelfRuns(){
-        AF.request("\(host)/api/v1/runs?userId=\(userId!)",
+        AF.request("\(host)/runs?userId=\(userId!)",
                    method: .get,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: [Run].self) { (response) in
@@ -44,7 +42,7 @@ class RunsService: ObservableObject {
     }
     
     func getFeed() {
-        AF.request("\(host)/api/v1/runs",
+        AF.request("\(host)/runs",
                    method: .get,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: [Run].self) { (response) in

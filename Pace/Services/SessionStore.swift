@@ -9,10 +9,9 @@ import Foundation
 import Combine
 import Alamofire
 
-class SessionStore: ObservableObject {
+class SessionStore: ApiHost, ObservableObject {
     @Published var user: User?
     @Published var isSignedIn: Bool? = nil
-    private var host = "http://3.96.220.190:3000"
     
     func signup(name: String,
                 userName: String,
@@ -21,7 +20,7 @@ class SessionStore: ObservableObject {
                ) {
         print("signing up...")
         let newUser = ["name": name, "userName": userName, "password": password, "email": email]
-        AF.request("\(host)/api/v1/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+        AF.request("\(host)/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
                 print("AN error occores \(response.error)")
             }
@@ -44,7 +43,7 @@ class SessionStore: ObservableObject {
                onError: ((_ errorMsg: String) -> Void)? = nil) {
         let user = ["email":email, "password":password]
         
-        AF.request("\(host)/api/v1/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
+        AF.request("\(host)/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
                 print("AN error occores \(response.error)")
                 if(onError != nil) {

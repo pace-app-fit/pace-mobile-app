@@ -7,6 +7,13 @@ struct Run: Codable, Hashable, Equatable {
     let coordinates: [Coordinate]
     let time, distance, averagePace, averageSpeed: Double
     let totalElevation: TotalElevation
+    
+    let user: MiniUser
+    
+    struct MiniUser: Codable, Hashable, Equatable {
+        let userName: String
+        let profileImage: String
+    }
 
     
     var formatedTime: String {

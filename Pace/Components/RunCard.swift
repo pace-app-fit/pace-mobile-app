@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import URLImage
 
 struct RunCard: View {
     var track: Run
@@ -13,11 +14,16 @@ struct RunCard: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Circle()
-                    .frame(width: 45)
+                URLImage(url: URL(string: track.user.profileImage)!) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 40, height: 40)
+                        .cornerRadius(20)
+                }
                 VStack(alignment: .leading) {
-//                    Text(search.name)
-//                        .bold()
+                    Text(track.user.userName)
+                        .bold()
                     Text(track.formatedCreatedDate)
                 }
             }

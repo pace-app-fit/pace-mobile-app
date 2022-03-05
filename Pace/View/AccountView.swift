@@ -25,10 +25,11 @@ struct AccountView: View {
                     }
                 }
             }
+            .padding(.top, 100)
             .onAppear {
                 tracks.getSelfRuns()
             }
-            .navigationTitle((auth.user?.userName)!)
+            .navigationTitle("My runs")
 
             .navigationBarItems(trailing: Button(action: {
                 isShowingAccountDetails = true
