@@ -16,16 +16,35 @@ struct AccountView: View {
     
     var body: some View {
         NavigationView {
-            VStack{
-                List {
-                    ForEach(tracks.myRuns, id: \.self) { track in
-                        RunCard(track: track)
-                            .listRowInsets(EdgeInsets())
-           
+            ScrollView {
+                Group {
+                    if(tracks.loading) {
+                        ProgressView()
+                            .padding(.top, 200)
+                    } else {
+                        if(tracks.myRuns.count < 1) {
+                            VStack {
+                                Text("No runs yet...")
+                                    .foregroundColor(.secondary)
+                                    .font(.title)
+                                    .bold()
+                                Text("Why not go for a run")
+                                    .foregroundColor(.secondary)
+                                   
+                            }
+                            .frame(width: 340, height: 200)
+                            .background(Color(UIColor.systemGray5))
+                            .cornerRadius(12)
+                            .padding(.top, 200)
+                        } else {
+                            ForEach(tracks.myRuns, id: \.self) { track in
+                                RunCard(track: track)
+                   
+                            }
+                        }
                     }
                 }
             }
-            .padding(.top, 100)
             .onAppear {
                 tracks.getSelfRuns()
             }
@@ -39,7 +58,6 @@ struct AccountView: View {
             }
 
         }
-        .navigationViewStyle(StackNavigationViewStyle())
 
     }
         
@@ -112,11 +130,15 @@ struct AccountDetails: View {
                 }
                     
             }
-            
-            Section(header: Text("Log out")) {
-                Text("Signout")
-                    .onTapGesture(perform: auth.logout)
+            Section {
+                Button(action: {
+                    auth.logout()
+                }) {
+                    Text("Signout")
+                        .foregroundColor(Color.red)
+                }
             }
+            
         }
     }
 }

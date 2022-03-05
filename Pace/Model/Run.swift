@@ -36,9 +36,12 @@ struct Run: Codable, Hashable, Equatable {
     }
     
     var formatedCreatedDate: String {
-//        let date = Date(timeIntervalSinceReferenceDate: createdAt)
-//        return date.getFormattedDate(format: "EEEE, MMM d, yyyy")
-        return createdAt
+        let df1 = DateFormatter()
+        df1.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSz"
+        let date = df1.date(from: createdAt)
+        let df2 = DateFormatter()
+        df2.dateFormat = "EEEE MMM d, yyyy"
+        return df2.string(from: date!)
     }
     
     var formatedSpeed: String {

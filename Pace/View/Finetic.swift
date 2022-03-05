@@ -9,23 +9,16 @@ import SwiftUI
 import AVKit
 
 struct Finetic: View {
-    @ObservedObject var finetic = FineticVideoService()
-    
     @ViewBuilder
     var body: some View {
-        
-            
-                VStack {
-                    
-                    
-                    ForEach(finetic.workouts ?? []) { workout in
-                        FitnessCardView(workout: workout)
-                    }
-                }
-            
-            .navigationTitle("Finetic")
-        
-        
+        NavigationView {
+            ScrollView {
+                Text("Screen under construction...")
+                    .bold()
+                    .padding(.top, 250)
+            }
+            .navigationTitle("Pace")
+        }
     }
 }
 

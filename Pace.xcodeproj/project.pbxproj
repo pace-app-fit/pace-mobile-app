@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0411640427CDA41A00B714C6 /* ApiHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0411640327CDA41A00B714C6 /* ApiHost.swift */; };
+		041FBBA227D40D7600DB31FB /* UserProfileview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041FBBA127D40D7600DB31FB /* UserProfileview.swift */; };
 		0439147727CE7B5E00D8C5AB /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0439147627CE7B5E00D8C5AB /* Alamofire */; };
 		04B8179A27D1088900C6FCEF /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8179927D1088900C6FCEF /* IndexView.swift */; };
 		0B47CFBF20E7672E7A6ECF49 /* Pods_Pace.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9815262C7584D855C17BE560 /* Pods_Pace.framework */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		0411640327CDA41A00B714C6 /* ApiHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHost.swift; sourceTree = "<group>"; };
+		041FBBA127D40D7600DB31FB /* UserProfileview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileview.swift; sourceTree = "<group>"; };
 		04B8179927D1088900C6FCEF /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		0ED1B2099EEF5BF8A0F45080 /* Pods-Pace.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.release.xcconfig"; path = "Target Support Files/Pods-Pace/Pods-Pace.release.xcconfig"; sourceTree = "<group>"; };
 		2C7BEFAF6B81CD6AD01BCE6B /* Pods-Pace.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pace.debug.xcconfig"; path = "Target Support Files/Pods-Pace/Pods-Pace.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				4A9D18942635FE8100ED26AC /* RunDetailsView.swift */,
 				4A9D18972636DF8900ED26AC /* RunInProgressView.swift */,
 				4A9D18D62639DB0300ED26AC /* UserProfile.swift */,
+				041FBBA127D40D7600DB31FB /* UserProfileview.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				4A25331425E9B52C0000A90B /* AccountView.swift in Sources */,
 				4A8484B025E53F6800F50FD4 /* MKCoordinateRegions+DefaultRegion.swift in Sources */,
 				4AB6FA5C25F40E770040370C /* WorkoutDetailsView.swift in Sources */,
+				041FBBA227D40D7600DB31FB /* UserProfileview.swift in Sources */,
 				0411640427CDA41A00B714C6 /* ApiHost.swift in Sources */,
 				4A25330725E9B2BD0000A90B /* AppView.swift in Sources */,
 				4AB6FA4325F3A56C0040370C /* NewRun.swift in Sources */,

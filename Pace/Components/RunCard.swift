@@ -13,21 +13,26 @@ struct RunCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            HStack {
-                URLImage(url: URL(string: track.user.profileImage)!) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 40, height: 40)
-                        .cornerRadius(20)
+            NavigationLink(destination: UserProfileView(userId: track.userId)) {
+                HStack {
+                    URLImage(url: URL(string: track.user.profileImage)!) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 40, height: 40)
+                            .cornerRadius(20)
+                    }
+                    VStack(alignment: .leading) {
+                        Text(track.user.userName)
+                            .bold()
+                        Text(track.formatedCreatedDate)
+                    }
                 }
-                VStack(alignment: .leading) {
-                    Text(track.user.userName)
-                        .bold()
-                    Text(track.formatedCreatedDate)
-                }
+
+                .padding()
             }
-            .padding()
+            .buttonStyle(PlainButtonStyle())
+
             Text(track.name)
                 .font(.headline)
                 .bold()
@@ -57,6 +62,7 @@ struct RunCard: View {
                         .bold()
                 })
                 .padding(.horizontal)
+            Divider()
             
           
     }

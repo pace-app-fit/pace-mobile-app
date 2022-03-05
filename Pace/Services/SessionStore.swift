@@ -18,11 +18,10 @@ class SessionStore: ApiHost, ObservableObject {
                 email: String,
                 password:String
                ) {
-        print("signing up...")
         let newUser = ["name": name, "userName": userName, "password": password, "email": email]
         AF.request("\(host)/users/register", method: .post, parameters: newUser, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
             }
             guard let user = response.value?.user else {return}
             
@@ -34,7 +33,6 @@ class SessionStore: ApiHost, ObservableObject {
             UserDefaults.standard.set(password, forKey: "password")
             UserDefaults.standard.set(user.id, forKey: "userId")
         }
-        
     }
     
     func login(email: String,
@@ -45,19 +43,17 @@ class SessionStore: ApiHost, ObservableObject {
         
         AF.request("\(host)/users/login", method: .post, parameters: user, encoder: JSONParameterEncoder.default).responseDecodable(of: Session.self) { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
                 if(onError != nil) {
                     onError!(response.error?.localizedDescription ?? "something went wrong")
                 }
             }
             guard let user = response.value?.user else {return}
-            print(self.isSignedIn)
 
             self.objectWillChange.send()
             self.user = user
             self.isSignedIn = true
             
-            print(self.isSignedIn)
             UserDefaults.standard.set(response.value?.token, forKey: "token")
             UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set(password, forKey: "password")

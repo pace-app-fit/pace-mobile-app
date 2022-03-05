@@ -10,7 +10,8 @@ import SwiftUI
 struct RunDetailsView: View {
     @Environment(\.presentationMode) var presentation
     @ObservedObject var runs = RunsService()
-    
+    @EnvironmentObject var auth: SessionStore
+
     @State private var isShowingAlert = false
     @State private var alertMsg = ""
     
@@ -68,14 +69,17 @@ struct RunDetailsView: View {
         }
         .padding(.horizontal)
         .navigationTitle("Analysis")
-        .navigationBarItems(trailing: Button(action: {
-            runs.deleteRun(runId: track.id)
+        .navigationBarItems(trailing: track.userId == auth.user?.id ? Button(action: {
+            runs.deleteRun(runId: track.id) { res in
+                alertMsg = res
+                isShowingAlert = true
+            }
         }, label: {
             Text("Delete")
                 .foregroundColor(Color.red)
-        }) )
+        }) : nil)
         .alert(isPresented: $isShowingAlert) {
-            Alert(title: Text("All done"), message: Text(alertMsg))
+            Alert(title: Text("Done"), message: Text(alertMsg))
         }
         
     }

@@ -11,6 +11,7 @@ import Alamofire
 class RunsService: ApiHost, ObservableObject {
     @Published var myRuns = [Run]()
     @Published var feed = [Run]()
+    @Published var loading = false
     var token = UserDefaults.standard.string(forKey: "token")
     var userId = UserDefaults.standard.string(forKey: "userId")
 
@@ -22,51 +23,50 @@ class RunsService: ApiHost, ObservableObject {
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: Run.self) { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
             }
             print(response)
         }
     }
     
     func getSelfRuns(){
+        loading = true
         AF.request("\(host)/runs?userId=\(userId!)",
                    method: .get,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: [Run].self) { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
             }
             self.myRuns = response.value ?? []
-            print(response)
+            self.loading = false
         }
     }
     
     func getFeed() {
+        loading = true
         AF.request("\(host)/runs",
                    method: .get,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: [Run].self) { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
             }
             self.feed = response.value ?? []
-            print(response)
+            self.loading = false
         }
     }
     
-    func deleteRun(runId: String) {
+    func deleteRun(runId: String, onSucess: @escaping (String) -> Void) {
         AF.request("\(host)/runs/\(runId)",
                    method: .delete,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).response { (response) in
             if(response.error != nil) {
-                print("AN error occores \(response.error)")
+                print("AN error occores \(String(describing: response.error))")
             }
-            print(response)
+            onSucess("Successfully deleted run")
         }
     }
-    
-
-
 }
 

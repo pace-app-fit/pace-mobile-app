@@ -10,38 +10,38 @@ import URLImage
 
 struct DashboardView: View {
     @EnvironmentObject var auth: SessionStore
-    
+    @State var isShowingAccountDetails = false
+
     var body: some View {
         NavigationView {
         ScrollView() {
-            Text("In progress...")
+            Text("Dashboard under construction...")
                 .bold()
-                .padding(.top, 400)
+                .padding(.top, 250)
     
             
         }
         .navigationBarTitleDisplayMode(.large)
-
+        .sheet(isPresented: $isShowingAccountDetails) {
+            AccountDetails(user: auth.user!)
+        }
         .navigationTitle(Text("Dashboard"))
-        .navigationBarLargeTitleItems(trailing: URLImage(url: (URL(string: auth.user?.profileImage ?? "") ?? URL(string: "https://picsum.photos/200"))!) { image in
+        .navigationBarLargeTitleItems(trailing: URLImage(url: URL(string: auth.user!.profileImage)!) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 30, height: 30)
                 .cornerRadius(30)
                 .padding(.trailing)
+                .onTapGesture {
+                    self.isShowingAccountDetails = true
+                }
         })
       
         }
-        .navigationViewStyle(StackNavigationViewStyle())
-           
-          
-        
-       
-        
-       
     }
 }
+
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {

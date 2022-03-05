@@ -7,11 +7,40 @@
 
 import Foundation
 import FirebaseFirestore
+import Alamofire
 
-class SocialService: ObservableObject {
+class SocialService: ApiHost, ObservableObject {
     @Published var following = 0
     @Published var followers = 0
     @Published var runs: [Run] = []
+    @Published var user: User?
+    @Published var loading = false
+    
+    func getUser(userId: String) {
+        loading = true
+        AF.request("\(host)/users/\(userId)",
+                   method: .get
+        ).responseDecodable(of: User.self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(String(describing: response.error))")
+            }
+            self.user = response.value!
+            self.loading = false
+        }
+    }
+    
+    func getUserRuns(userId: String){
+        loading = true
+        AF.request("\(host)/runs?userId=\(userId)",
+                   method: .get
+        ).responseDecodable(of: [Run].self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(String(describing: response.error))")
+            }
+            self.runs = response.value ?? []
+            self.loading = false
+        }
+    }
     
     static var following = Firestore.firestore().collection("following")
     

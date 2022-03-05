@@ -25,24 +25,22 @@ struct RunsView: View {
         }
             
     }
-    
    
     var body: some View {
         NavigationView {
-            VStack {
-                List {
+            ScrollView {
+                if(tracks.loading) {
+                    ProgressView()
+                        .padding(.top, 200)
+                } else {
                     ForEach(tracks.feed, id: \.self) { track in
                         RunCard(track: track)
-                            .listRowInsets(EdgeInsets())
-           
                     }
                 }
-               
             }
             .onAppear(perform: tracks.getFeed)
             .navigationTitle("Friends")
         }
-      
     }
 }
 
