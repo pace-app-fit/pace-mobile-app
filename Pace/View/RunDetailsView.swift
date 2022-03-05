@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RunDetailsView: View {
     @Environment(\.presentationMode) var presentation
-    @ObservedObject var firestore = RunsService()
+    @ObservedObject var runs = RunsService()
     
     @State private var isShowingAlert = false
     @State private var alertMsg = ""
@@ -68,20 +68,12 @@ struct RunDetailsView: View {
         }
         .padding(.horizontal)
         .navigationTitle("Analysis")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading:
-            Image(systemName: "chevron.left")
-                                .foregroundColor(.blue)
-                                .onTapGesture {
-                                    presentation.wrappedValue.dismiss()
-                                }, trailing: Text("Delete")
-//                                    .onTapGesture {
-//                                        firestore.deleteRun(run: track) { msg in
-//                                            alertMsg = msg
-//                                            isShowingAlert = true
-//                                        }
-//                                    }
-        )
+        .navigationBarItems(trailing: Button(action: {
+            runs.deleteRun(runId: track.id)
+        }, label: {
+            Text("Delete")
+                .foregroundColor(Color.red)
+        }) )
         .alert(isPresented: $isShowingAlert) {
             Alert(title: Text("All done"), message: Text(alertMsg))
         }

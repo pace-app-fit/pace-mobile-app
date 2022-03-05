@@ -28,18 +28,21 @@ struct RunsView: View {
     
    
     var body: some View {
-        VStack {
-            List {
-                ForEach(tracks.feed, id: \.self) { track in
-                    RunCard(track: track)
-                        .listRowInsets(EdgeInsets())
-       
-                }
-            }
+        NavigationView {
+            VStack {
+                List {
+                    ForEach(tracks.feed, id: \.self) { track in
+                        RunCard(track: track)
+                            .listRowInsets(EdgeInsets())
            
+                    }
+                }
+               
+            }
+            .onAppear(perform: tracks.getFeed)
+            .navigationTitle("Friends")
         }
-        .onAppear(perform: tracks.getFeed)
-        .navigationTitle("Friends")
+      
     }
 }
 

@@ -19,30 +19,27 @@ struct IndexView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
                 VStack {
-                    HStack() {
+                    HStack {
                         Spacer()
                         NavigationLink(destination: SigninView(auth: _auth)) {
                             Text("Sign in")
                                 .bold()
+                                .foregroundColor(Color.white)
                         }
                         .padding(.trailing, 40)
-                        .offset(y: -80)
                     }
+                   
+                   
+                    
                     Spacer()
-                    NavigationLink(destination: SigninView()) {
-                        Text("Sign in")
+                    NavigationLink(destination: SignupView(auth: _auth)) {
+                        Text("Sign up")
                             .modifier(ButtonModifier())
                             .frame(width: 300)
-
                     }
-           
                 }
-              
             }
-          
         }
-  
-            
     }
 }
 

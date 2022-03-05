@@ -12,11 +12,14 @@ struct FormField: View {
     var icon: String
     var placeholder: String
     var isSecure = false
+    var name: String
     
     var body: some View {
         Group {
-            HStack {
-//                Image(systemName: icon).padding()
+            VStack(alignment: .leading) {
+                Text(name)
+                    .foregroundColor(.secondary)
+                
                 Group {
                     if isSecure {
                         SecureField(placeholder, text: $value )
@@ -25,15 +28,15 @@ struct FormField: View {
                             
                     }
                 }
-                .padding()
-                .background(Color.secondary)
-                .cornerRadius(4)
-                
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
                 
             }
+            .padding([.top, .bottom], 8)
+            .padding(.leading)
+            .background(Color(UIColor.systemGray5))
+            .cornerRadius(8)
         }
+        .padding(.top)
     }
 }

@@ -54,6 +54,18 @@ class RunsService: ApiHost, ObservableObject {
         }
     }
     
+    func deleteRun(runId: String) {
+        AF.request("\(host)/runs/\(runId)",
+                   method: .delete,
+                   headers: ["Authorization": "Bearer \(token!)"]
+        ).response { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(response.error)")
+            }
+            print(response)
+        }
+    }
+    
 
 
 }

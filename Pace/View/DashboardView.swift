@@ -23,7 +23,7 @@ struct DashboardView: View {
         .navigationBarTitleDisplayMode(.large)
 
         .navigationTitle(Text("Dashboard"))
-        .navigationBarLargeTitleItems(trailing: URLImage(url: URL(string: auth.user!.profileImage)!) { image in
+        .navigationBarLargeTitleItems(trailing: URLImage(url: (URL(string: auth.user?.profileImage ?? "") ?? URL(string: "https://picsum.photos/200"))!) { image in
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)

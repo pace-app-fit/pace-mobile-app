@@ -17,8 +17,9 @@ struct Run: Codable, Hashable, Equatable {
 
     
     var formatedTime: String {
-        let minutes = String(format: "%g", round(time / 60))
-        let seconds = String(format: "%g", round(time.truncatingRemainder(dividingBy: 60)))
+        let totalSeconds = Int(time)
+        let minutes = String((totalSeconds % 3600) / 60)
+        let seconds = String((totalSeconds % 3600) % 60)
         return String("\(minutes):\(seconds) min")
     }
     

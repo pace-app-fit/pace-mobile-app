@@ -48,20 +48,18 @@ struct SigninView: View {
     }
 
     var body: some View {
-        NavigationView {
-            VStack(spacing: 20) {
-               
-                VStack(alignment: .center) {
+            VStack(alignment: .leading) {
+                VStack(alignment: .leading) {
                     Text("Welcome Back")
-                        .font(.system(size: 32, weight: .heavy))
+                        .font(.system(size: 24, weight: .heavy))
+                        .font(.title)
                     Text("Sign in to continue")
                         .font(.system(size: 16, weight: .medium))
-                    
+                        .foregroundColor(.secondary)
                 }
-                
-                FormField(value: $email, icon: "mail", placeholder: "Enter email")
-                FormField(value: $password, icon: "lock", placeholder: "Enter password", isSecure: true)
-                
+                FormField(value: $email, icon: "mail", placeholder: "me@gmail.com", name: "Email")
+                FormField(value: $password, icon: "lock", placeholder: "Enter your password", isSecure: true, name: "Password")
+                Spacer()
                 Button(action: {
                     signin()
                 }, label: {
@@ -72,16 +70,10 @@ struct SigninView: View {
                 }).alert(isPresented: $showingAlert, content: {
                     Alert(title: Text(alertTitle), message: Text(error), dismissButton: .default(Text("OK")))
                 })
-                
-                HStack {
-                    Text("New?")
-                    NavigationLink(destination: SignupView()) {
-                        Text("Create an account here").bold()
-                    }
-                }
-                .font(.callout)
-            }.padding().navigationBarHidden(true)
-        }
+            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
+            .padding([.leading, .trailing], 20)
+        
     }
 }
 
