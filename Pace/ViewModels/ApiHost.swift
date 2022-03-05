@@ -10,7 +10,7 @@ import Combine
 
 
 class ApiHost {
-    var dev = false
+    var dev = true
     
     var host: String {
         get {

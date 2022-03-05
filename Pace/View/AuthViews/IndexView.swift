@@ -24,21 +24,30 @@ struct IndexView: View {
                         NavigationLink(destination: SigninView(auth: _auth)) {
                             Text("Sign in")
                                 .bold()
-                                .foregroundColor(Color.white)
+                            Image(systemName: "chevron.right")
                         }
-                        .padding(.trailing, 40)
+                        .foregroundColor(Color.white)
+
+                        .padding(.trailing, 80)
                     }
+                    
+                    Image("pace_text")
+                        .offset(y: 400)
+                
+
                    
                    
                     
                     Spacer()
                     NavigationLink(destination: SignupView(auth: _auth)) {
-                        Text("Sign up")
+                        Text("Get started")
                             .modifier(ButtonModifier())
                             .frame(width: 300)
                     }
                 }
             }
+            .navigationBarHidden(true)
+            .statusBar(hidden: true)
         }
     }
 }
