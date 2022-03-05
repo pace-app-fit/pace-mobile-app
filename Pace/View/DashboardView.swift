@@ -9,10 +9,7 @@ import SwiftUI
 import URLImage
 
 struct DashboardView: View {
-    
     @EnvironmentObject var auth: SessionStore
-
-    
     
     var body: some View {
         NavigationView {

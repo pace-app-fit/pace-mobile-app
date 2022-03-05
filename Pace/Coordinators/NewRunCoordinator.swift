@@ -31,6 +31,8 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     func start() {
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        manager.allowsBackgroundLocationUpdates = true
+        manager.pausesLocationUpdatesAutomatically = false
     }
     
     func stop() {
@@ -42,14 +44,14 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("location updated")
-        let nextCoordinate = NewCoords(speed: locations.last?.speed ?? 0.0, longitude: locations.last?.coordinate.longitude ?? 0.0, accuracy: locations.last?.horizontalAccuracy ?? 0.0, latitude: locations.last?.coordinate.latitude ?? 0.0, altitude: locations.last?.altitude ?? 0.0)
-        let nextLine = CLLocationCoordinate2D(latitude: locations.last?.coordinate.latitude ?? 0.0, longitude: locations.last?.coordinate.longitude ?? 0.0)
-        newLocations?.append(nextCoordinate)
-        lineCoordinates.append(nextLine)
-        region = MKCoordinateRegion(center: nextLine, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-       
-        
+        if let location = locations.last {
+            print("LOCATION UPDATED")
+            let nextCoordinate = NewCoords(speed: location.speed , longitude: location.coordinate.longitude , accuracy: location.horizontalAccuracy , latitude: location.coordinate.latitude, altitude: location.altitude )
+            let nextLine = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            newLocations?.append(nextCoordinate)
+            lineCoordinates.append(nextLine)
+            region = MKCoordinateRegion(center: nextLine, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {

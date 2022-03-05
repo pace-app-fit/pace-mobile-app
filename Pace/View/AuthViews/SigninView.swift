@@ -50,8 +50,7 @@ struct SigninView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 20) {
-                Image(systemName: "camera")
-                    .font(.system(size: 60, weight: .black, design: .monospaced))
+               
                 VStack(alignment: .center) {
                     Text("Welcome Back")
                         .font(.system(size: 32, weight: .heavy))

@@ -16,7 +16,7 @@ struct FormField: View {
     var body: some View {
         Group {
             HStack {
-                Image(systemName: icon).padding()
+//                Image(systemName: icon).padding()
                 Group {
                     if isSecure {
                         SecureField(placeholder, text: $value )
@@ -26,7 +26,7 @@ struct FormField: View {
                     }
                 }
                 .padding()
-                .background(Color.white)
+                .background(Color.secondary)
                 .cornerRadius(4)
                 
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))

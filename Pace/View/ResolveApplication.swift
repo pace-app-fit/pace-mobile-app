@@ -20,6 +20,7 @@ struct ResolveApplication: View {
                         .environmentObject(self.auth)
                 } else {
                     IndexView()
+                        .environmentObject(self.auth)
                 }
             }
         }.onAppear(perform: localSignin)

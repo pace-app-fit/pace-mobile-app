@@ -36,10 +36,10 @@ struct AccountView: View {
             .sheet(isPresented: $isShowingAccountDetails) {
                 AccountDetails(user: auth.user!)
             }
-            .navigationViewStyle(StackNavigationViewStyle())
 
         }
-      
+        .navigationViewStyle(StackNavigationViewStyle())
+
     }
         
         
