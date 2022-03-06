@@ -9,7 +9,12 @@ import MapKit
 import CoreLocation
 import Combine
 
+extension String: LocalizedError {
+    public var errorDescription: String? { return self }
+}
+
 class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate, ObservableObject {
+    var network = NetworkMonitor()
     var newRun: NewRun?
     var newLocations: [NewCoords]? = []
     @Published var lineCoordinates: [CLLocationCoordinate2D] = []
@@ -18,7 +23,8 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
     var runService: RunsService = RunsService()
     var session = SessionStore()
     var utilities = CreateRunHelperFunctions()
-    
+    @Published var loading = false
+
     @Published var region: MKCoordinateRegion?
     var span: MKCoordinateSpan?
     
@@ -33,13 +39,43 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
         manager.startUpdatingLocation()
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = false
+        network.startMonitoring()
     }
     
-    func stop() {
+    func stop(completion: @escaping (Result<Run, ServerError>) -> Void) throws {
+        self.loading = true
         manager.stopUpdatingLocation()
         let name = utilities.createName()
         let newRun = NewRun(name: name, coordinates: newLocations!)
-        runService.postRun(newRun: newRun)
+        if(!network.isReachable) {
+            self.saveToDevice(run: newRun)
+            throw "You're not connected to the internet"
+        }
+        if(newRun.coordinates.count < 4) {
+            throw "Sorry this run isnt long enough"
+        }
+        runService.postRun(newRun: newRun) { res in
+            completion(res)
+            switch res {
+            case .success(_):
+                print("")
+            case .failure(_):
+                self.saveToDevice(run: newRun)
+            }
+        }
+        self.loading = false
+    }
+    
+    func saveToDevice(run: NewRun) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(run)
+            UserDefaults.standard.set(data, forKey: "run")
+
+        } catch {
+            print("Unable to Encode run (\(error))")
+        }
+      
     }
     
     

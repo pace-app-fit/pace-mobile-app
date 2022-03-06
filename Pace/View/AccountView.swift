@@ -111,25 +111,86 @@ struct AccountHeader: View {
 
 struct AccountDetails: View {
     @EnvironmentObject var auth: SessionStore
+    var runService: RunsService = RunsService()
+    @State var showingAlert = false
+    @State var message = ""
+    @State var title = ""
     var user: User
+    @State var failedRun: NewRun?
+    
+    func getUploadError() {
+        if let data = UserDefaults.standard.data(forKey: "run") {
+            do {
+                let decoder = JSONDecoder()
+
+                let run = try decoder.decode(NewRun.self, from: data)
+                self.failedRun = run
+
+            } catch {
+                print("Unable to Decode Note (\(error))")
+            }
+        }
+    }
+    
+    func deleteFailedRun() {
+        UserDefaults.standard.removeObject(forKey: "run")
+        self.failedRun = nil
+    }
     
     var body: some View {
         Form {
-            Section(header: Text("Details")) {
+            Section() {
                 HStack{
-                    Text(user.userName )
-                        .font(.headline)
-                    Spacer()
-                        
+                    URLImage(url: URL(string: user.profileImage)!) { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 60, height: 60)
+                            .cornerRadius(50)
+                    }
+                    VStack(alignment: .leading) {
+                        Text(user.userName)
+                            .font(.headline)
+                        Text(user.email)
+                            .font(.callout)
+                            .foregroundColor(.secondary)
+                    }
+
                 }
-                HStack{
-                    Text(user.email )
-                        .font(.headline)
-                    Spacer()
-                        
-                }
-                    
             }
+        
+            Section(header: Text("Upload errors")) {
+                HStack{
+                    Text(failedRun?.name ?? "All runs uploaded" )
+                        .font(.headline)
+                    Spacer()
+                    if(failedRun?.name != nil) {
+                        if(runService.loading) {
+                            ProgressView()
+                        } else {
+                            Image(systemName: "icloud.and.arrow.up")
+                                .onTapGesture {
+                                    runService.postRun(newRun: failedRun!) { res in
+                                        switch res {
+                                        case .success(_):
+                                            self.title = "Success"
+                                            self.message = "Your run has been uploaded"
+                                            self.showingAlert = true
+                                            deleteFailedRun()
+                                        case .failure(let err):
+                                            self.title = "Error"
+                                            self.message = err.message
+                                            self.showingAlert = true
+                                            
+                                        }
+                                    }
+                                }
+                        }
+                        }
+                }
+            }
+              
+            
             Section {
                 Button(action: {
                     auth.logout()
@@ -139,7 +200,16 @@ struct AccountDetails: View {
                 }
             }
             
+           
+        }
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text(title), message: Text(message), dismissButton: .default(Text("Ok")))
+        }
+        .onAppear{
+            getUploadError()
         }
     }
+       
+    
 }
 

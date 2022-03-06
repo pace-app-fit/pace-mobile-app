@@ -10,11 +10,10 @@ import MediaPlayer
 import MapKit
 
 struct RunInProgressView: View {
-    var trackName = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem?.title
-    var trackArtist = MPMusicPlayerController.systemMusicPlayer.nowPlayingItem?.artist
-    
     @ObservedObject var locationCoordinator = NewRunCoordinator()
     @ObservedObject var timer = StopWatchManager()
+    @State var showingAlert = false
+    @State var error = ""
     @Environment(\.presentationMode) var presentationMode
     
     @State private var defaultRegion = MKCoordinateRegion(
@@ -25,6 +24,18 @@ struct RunInProgressView: View {
     
     var localTimer: String {
         timer.printSecondsToHoursMinutesSeconds(seconds: Int(timer.secondsElapsed))
+    }
+    
+    func saveToDevice(run: NewRun) {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(run)
+            UserDefaults.standard.set(data, forKey: "run")
+
+        } catch {
+            print("Unable to Encode run (\(error))")
+        }
+      
     }
     
     
@@ -49,6 +60,7 @@ struct RunInProgressView: View {
                             Button(action: {
                                 timer.start()
                                 locationCoordinator.start()
+
                             }, label: {
                                 Text("Start Run")
                             })
@@ -67,15 +79,31 @@ struct RunInProgressView: View {
                             VStack {
                                 Spacer()
                                 Button(action: {
-                                    presentationMode.wrappedValue.dismiss()
                                     timer.stop()
-                                        locationCoordinator.stop()
+
+                                    do {
+                                        try locationCoordinator.stop() {(res) in
+                                            switch res {
+                                            case .failure(let err):
+                                                    self.error = err.message
+                                                    self.showingAlert = true
+                                                
+                                            case .success(let run):
+                                                presentationMode.wrappedValue.dismiss()
+                                            }
+                                        }
+                                    } catch {
+                                        self.error = error.localizedDescription
+                                        self.showingAlert = true
+                                    }
                                 }, label: {
                                     Text("Stop Run")
                                 })
+                                
+                                
                                 .modifier(ButtonModifier())
                                 .frame(width: geo.size.width * 0.5)
-                                
+                               
                                 Spacer()
                                 
                                 Button(action: {
@@ -83,11 +111,14 @@ struct RunInProgressView: View {
                                 }, label: {
                                     Text("Resume Run")
                                 })
+                                
                                 .modifier(ButtonModifier(backgroundColor: Color.blue))
                                 .frame(width: geo.size.width * 0.5)
 
                                 Spacer()
-                            } .frame(height: geo.size.height * 0.3)
+                            }
+                            .frame(height: geo.size.height * 0.3)
+                           
                             
                         }
                     }
@@ -96,7 +127,11 @@ struct RunInProgressView: View {
                    
                     Spacer()
                 }
-                
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Error"), message: Text(error), dismissButton: Alert.Button.default(Text("Ok")) {
+                        presentationMode.wrappedValue.dismiss()
+                    })
+                }
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 .scaledToFit()
                 .background(Color.green)

@@ -67,20 +67,23 @@ struct RunDetailsView: View {
             }
             
         }
+        .alert(isPresented: $isShowingAlert) {
+            Alert(title: Text("Done"), message: Text(alertMsg))
+        }
         .padding(.horizontal)
         .navigationTitle("Analysis")
         .navigationBarItems(trailing: track.userId == auth.user?.id ? Button(action: {
             runs.deleteRun(runId: track.id) { res in
-                alertMsg = res
-                isShowingAlert = true
+                print(res)
+                self.alertMsg = res
+                self.isShowingAlert = true
+                self.presentation.wrappedValue.dismiss()
             }
         }, label: {
             Text("Delete")
                 .foregroundColor(Color.red)
         }) : nil)
-        .alert(isPresented: $isShowingAlert) {
-            Alert(title: Text("Done"), message: Text(alertMsg))
-        }
+       
         
     }
 }

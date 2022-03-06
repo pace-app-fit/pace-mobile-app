@@ -176,6 +176,7 @@
 		4A175BA625E476E20015062D /* Pace */ = {
 			isa = PBXGroup;
 			children = (
+				4AC4CE0F2634A0F7003C752C /* Utilities */,
 				4A9D18AA2639A08A00ED26AC /* ViewModels */,
 				4A16EB6326321B7F0068A214 /* Coordinators */,
 				4A93E40925F143810054B104 /* Components */,
@@ -225,7 +226,6 @@
 			isa = PBXGroup;
 			children = (
 				4AA5D67B263F70AC00ACD2CC /* Followers+Following */,
-				4AC4CE0F2634A0F7003C752C /* Utilities */,
 				4A175BBD25E478010015062D /* Run.swift */,
 				4A93E41825F149B90054B104 /* User.swift */,
 				4AB6FA4225F3A56C0040370C /* NewRun.swift */,
