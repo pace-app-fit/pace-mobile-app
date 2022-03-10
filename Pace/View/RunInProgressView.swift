@@ -38,6 +38,14 @@ struct RunInProgressView: View {
       
     }
     
+    func formatDistance(distance: Double) -> String {
+        return String(format: "%.2f", distance)
+    }
+    
+    func formatPace(speed: Double) -> String {
+        return String(format: "%.2f", speed*16.66)
+    }
+    
     
     var body: some View {
         NavigationView {
@@ -45,16 +53,38 @@ struct RunInProgressView: View {
                 VStack {
                     NewRunMapView(region: locationCoordinator.region ?? defaultRegion, lineCoordinates: locationCoordinator.lineCoordinates)
                         .frame(height: 400)
-                    Spacer()
+                    HStack(spacing: 15) {
+                        VStack(alignment: .center) {
+                            Text(formatDistance(distance: locationCoordinator.distance))
+                                .font(.largeTitle)
+                                .italic()
+                                .bold()
+                            Text("Distance")
+                                .foregroundColor(.secondary)
+                                .font(.headline)
+                                
+                        }.padding(.bottom, 0)
+                        Divider()
+                        VStack(alignment: .center) {
+                           
+                            Text(formatPace(speed: locationCoordinator.speed))
+                                .font(.largeTitle)
+                                .italic()
+                                .bold()
+                            Text("Pace")
+                                .foregroundColor(.secondary)
+                                .font(.headline)
+                                
+                        }.padding(.bottom, 0)
+                    }
+                    .frame( height: 120)
                     Text(localTimer)
-                        .font(.system(size: 84))
+                        .font(.system(size: 72))
                         .bold()
                         .italic()
-                        .foregroundColor(.white)
                     Text("Time")
                         .font(.largeTitle)
                         .foregroundColor(.secondary)
-                    Spacer()
                     VStack {
                         if timer.mode == .stopped {
                             Button(action: {
@@ -134,7 +164,6 @@ struct RunInProgressView: View {
                 }
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
                 .scaledToFit()
-                .background(Color.green)
                 
             }
             .edgesIgnoringSafeArea(.all)

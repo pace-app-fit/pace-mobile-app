@@ -15,19 +15,15 @@ struct NewRunMapView: UIViewRepresentable {
     let lineCoordinates: [CLLocationCoordinate2D]
 
     func makeUIView(context: Context) -> MKMapView {
-      let mapView = MKMapView()
-      mapView.delegate = context.coordinator
-      mapView.region = region
-    mapView.setRegion(region, animated: true)
+        let mapView = MKMapView()
+        mapView.delegate = context.coordinator
+        mapView.region = region
+        mapView.setRegion(region, animated: true)
         mapView.showsUserLocation = true
-
-
-      return mapView
+        return mapView
     }
 
     func updateUIView(_ view: MKMapView, context: Context) {
-        print("REGION")
-        print(region.center)
         view.removeOverlays(view.overlays)
         view.region = region
         let polyline = MKPolyline(coordinates: lineCoordinates, count: lineCoordinates.count)

@@ -13,6 +13,8 @@ struct NewRun: Codable, Hashable {
     var name: String
     var id = UUID()
     var coordinates: [NewCoords]
+    var distance: Double
+    var weather: Current?
 
 }
 

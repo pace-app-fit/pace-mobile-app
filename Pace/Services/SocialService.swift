@@ -15,6 +15,7 @@ class SocialService: ApiHost, ObservableObject {
     @Published var runs: [Run] = []
     @Published var user: User?
     @Published var loading = false
+    @Published var users: [User] = []
     
     func getUser(userId: String) {
         loading = true
@@ -38,6 +39,32 @@ class SocialService: ApiHost, ObservableObject {
                 print("AN error occores \(String(describing: response.error))")
             }
             self.runs = response.value ?? []
+            self.loading = false
+        }
+    }
+    
+    func getAllUsers() {
+        loading = true
+        AF.request("\(host)/users",
+                   method: .get
+        ).responseDecodable(of: [User].self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(String(describing: response.error))")
+            }
+            self.users = response.value ?? []
+            self.loading = false
+        }
+    }
+    
+    func searchUsers(searchText: String) {
+        loading = true
+        AF.request("\(host)/users?query=\(searchText)",
+                   method: .get
+        ).responseDecodable(of: [User].self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(String(describing: response.error))")
+            }
+            self.users = response.value ?? []
             self.loading = false
         }
     }

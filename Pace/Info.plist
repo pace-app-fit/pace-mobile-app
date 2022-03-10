@@ -24,15 +24,15 @@
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>http://10.100.21.112</key>
+			<key>http://3.99.158.203</key>
+			<true/>
+			<key>http://localhost</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>http://3.99.158.203</key>
-			<true/>
 		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
@@ -50,6 +50,7 @@
 	<true/>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchScreen</key>

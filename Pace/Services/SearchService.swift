@@ -14,11 +14,7 @@ class SearchService: ObservableObject {
     @Published var name = ""
     func searchUser(input: String, onSucess: @escaping (_ user: [User]) -> Void) {
         Firestore.firestore().collection("users").whereField("searchName", arrayContains: input.lowercased().removeWhiteSpaces()).getDocuments { (querySnapshot, err) in
-            
-          
-            
-            
-            
+             
         }
     }
 

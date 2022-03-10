@@ -36,10 +36,10 @@ struct RunDetailsView: View {
                     }.padding(.bottom, 0)
                     Divider()
                     VStack(alignment: .leading) {
-                        Text("Speed")
+                        Text("Time")
                             .foregroundColor(.secondary)
                             .font(.headline)
-                        Text(track.formatedSpeed)
+                        Text(track.formatedTime)
                             .font(.largeTitle)
                             .italic()
                             .bold()
@@ -49,15 +49,18 @@ struct RunDetailsView: View {
                 
                
                 HStack {
+                    if (track.weather != nil) {
+                        RunStatComponent(label: "Temp", value: track.formatedTemperature)
+                        Divider()
+                    }
                     RunStatComponent(label: "Elevation", value: track.totalElevation.totalElevationAsString)
                     Divider()
                     RunStatComponent(label: "Pace", value: track.formatedPace)
-                    Divider()
-                    RunStatComponent(label: "Time", value: track.formatedTime)
                 }
                 .padding(.top, 0)
-                MapView(track: track)
+                MapView(track: track, allowInteraction: true)
                     .frame(height: 270)
+                    .cornerRadius(15)
 //                Text("Splits")
 //                    .font(.title)
 //                    .padding(.vertical)

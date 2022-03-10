@@ -12,7 +12,7 @@ struct Session: Codable {
     var user: User
 }
 
-struct User: Codable {
+struct User: Codable, Hashable {
     var id: String
     var email: String
     var name: String

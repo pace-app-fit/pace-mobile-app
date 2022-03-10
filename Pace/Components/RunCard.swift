@@ -49,6 +49,11 @@ struct RunCard: View {
                 RunStatComponent(label: "Time", value: track.formatedTime)
                 Divider()
                 RunStatComponent(label: "Pace", value: track.formatedPace)
+                if track.weather != nil {
+                    Divider()
+                    RunStatComponent(label: "Temp", value: track.formatedTemperature)
+                }
+               
                             
             }
             .padding(.leading)
@@ -61,9 +66,7 @@ struct RunCard: View {
                         .foregroundColor(.secondary)
                         .bold()
                 })
-                .padding(.horizontal)
-            Divider()
-            
+                .padding(.horizontal)            
           
     }
         .frame(height: 475)

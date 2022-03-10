@@ -12,11 +12,12 @@ import Combine
 struct MapView: UIViewRepresentable {
     var track: Run
     var locationManager = CLLocationManager()
+    var allowInteraction: Bool = false
     
     func setupManager(){
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestAlwaysAuthorization()
     }
     
     func makeCoordinator() -> MapViewCoordinator {
@@ -27,10 +28,10 @@ struct MapView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
-        mapView.showsUserLocation = true
+//        mapView.showsUserLocation = true
         mapView.delegate = context.coordinator
-        mapView.isZoomEnabled = false
-        mapView.isScrollEnabled = false
+        mapView.isZoomEnabled = allowInteraction
+        mapView.isScrollEnabled = allowInteraction
       
         return mapView
       }

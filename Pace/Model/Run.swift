@@ -2,11 +2,14 @@ import Foundation
 import MapKit
 
 // MARK: - WelcomeElement
-struct Run: Codable, Hashable, Equatable {
+struct Run: Decodable, Hashable, Equatable {
     let name, id, userId, createdAt: String
     let coordinates: [Coordinate]
-    let time, distance, averagePace, averageSpeed: Double
+    let distance, averagePace, averageSpeed: Double
+    let time: Int
     let totalElevation: TotalElevation
+    let weather: WeatherDetails?
+    let weatherId: String?
     
     let user: MiniUser
     
@@ -14,17 +17,42 @@ struct Run: Codable, Hashable, Equatable {
         let userName: String
         let profileImage: String
     }
+    
+//    enum CodingKeys: String, CodingKey {
+//        case name, id, userId, createdAt, coordinates, time, distance, averagePace, averageSpeed, totalElevation, weather, user
+//    }
+    
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        self.weather = try values.decode(WeatherDetails?.self, forKey: .weather)
+//        self.name = try values.decode(String.self, forKey: .name)
+//        self.id = try values.decode(String.self, forKey: .id)
+//        self.userId = try values.decode(String.self, forKey: .userId)
+//        self.createdAt = try values.decode(String.self, forKey: .createdAt)
+//        self.coordinates = try values.decode([Coordinate].self, forKey: .coordinates)
+//        self.time = try values.decode(Double.self, forKey: .time)
+//        self.distance = try values.decode(Double.self, forKey: .distance)
+//        self.averagePace = try values.decode(Double.self, forKey: .averagePace)
+//        self.averageSpeed = try values.decode(Double.self, forKey: .averageSpeed)
+//        self.totalElevation = try values.decode(TotalElevation.self, forKey: .totalElevation)
+//        self.user = try values.decode(MiniUser.self, forKey: .user)
+//    }
 
     
     var formatedTime: String {
         let totalSeconds = Int(time)
         let minutes = String((totalSeconds % 3600) / 60)
         let seconds = String((totalSeconds % 3600) % 60)
-        return String("\(minutes):\(seconds) min")
+        return String("\(minutes):\(seconds)")
     }
     
     var formatedDistance: String {
-       "\(String(format: "%.2f", distance)) km"
+       "\(String(format: "%.2f", distance))km"
+    }
+    
+    var formatedTemperature: String {
+        let temp = Int(weather?.feelsLike ?? 0)
+        return (String("\(temp)°"))
     }
     
     var formatedPace: String {
@@ -32,7 +60,7 @@ struct Run: Codable, Hashable, Equatable {
         let wholeMinutes = String(format: "%g", minutes)
         let seconds = ((averagePace-minutes)*60).rounded(.up)
         let wholeSeconds = String(format: "%g", seconds)
-        return String("\(wholeMinutes):\(wholeSeconds) min / km")
+        return String("\(wholeMinutes)'\(wholeSeconds)\"")
     }
     
     var formatedCreatedDate: String {
@@ -46,7 +74,7 @@ struct Run: Codable, Hashable, Equatable {
     
     var formatedSpeed: String {
         let speed = String(format: "%.2f", averageSpeed)
-        return "\(speed) km/h"
+        return "\(speed)km/h"
     }
     
     var centerPoint: CLLocationCoordinate2D {

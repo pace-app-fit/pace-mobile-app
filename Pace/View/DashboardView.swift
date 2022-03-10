@@ -14,13 +14,15 @@ struct DashboardView: View {
 
     var body: some View {
         NavigationView {
-        ScrollView() {
+            ScrollView() {
+//            WeatherCard()
             Text("Dashboard under construction...")
                 .bold()
                 .padding(.top, 250)
     
             
         }
+            .padding(.horizontal)
         .navigationBarTitleDisplayMode(.large)
         .sheet(isPresented: $isShowingAccountDetails) {
             AccountDetails(user: auth.user!)
