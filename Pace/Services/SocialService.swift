@@ -16,6 +16,7 @@ class SocialService: ApiHost, ObservableObject {
     @Published var user: User?
     @Published var loading = false
     @Published var users: [User] = []
+    @Published var stat: UserStat?
     
     func getUser(userId: String) {
         loading = true
@@ -66,6 +67,23 @@ class SocialService: ApiHost, ObservableObject {
             }
             self.users = response.value ?? []
             self.loading = false
+        }
+    }
+    
+    func getUserStats(userId: String) {
+        AF.request("\(host)/stats?userId=\(userId)",
+                   method: .get
+        ).responseDecodable(of: UserStat.self) { (response) in
+            if(response.error != nil) {
+                print("AN error occores \(String(describing: response.error))")
+            }
+            
+            print(response)
+            
+            if let stat = response.value {
+                self.stat = stat
+            }
+          
         }
     }
     

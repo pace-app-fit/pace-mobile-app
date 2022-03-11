@@ -12,13 +12,12 @@ struct Weather: Codable {
     let timezone: String
     let timezoneOffset: Int
     let current: Current
-    let minutely: [Minutely]
     let hourly: [Current]
 
     enum CodingKeys: String, CodingKey {
         case lat, lon, timezone
         case timezoneOffset = "timezone_offset"
-        case current, minutely, hourly
+        case current, hourly
     }
 }
 
@@ -59,7 +58,7 @@ struct Current: Codable, Hashable {
     let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
-    let windGust: Double
+    let windGust: Double?
     let weather: [WeatherElement]
     let pop: Double?
 
@@ -102,11 +101,4 @@ struct WeatherElementDB: Codable, Hashable {
         case weatherDescription = "description"
         case icon
     }
-}
-
-
-
-// MARK: - Minutely
-struct Minutely: Codable {
-    let dt, precipitation: Int
 }

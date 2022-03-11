@@ -8,17 +8,30 @@
 import SwiftUI
 
 struct HomeScreenStatViewComponent: View {
-    var color: Color
+    var value: String
+    var label: String
     var body: some View {
         VStack {
-            
-            Text("45")
-                .font(.system(size: 82))
-                .foregroundColor(Color.white)
-            Text("label")
+            Spacer()
+            Spacer()
+            HStack(alignment: .lastTextBaseline) {
+                Text(value)
+                    .font(.system(size: 62, weight: .bold))
+                Text("km")
+                    .font(.title3)
+                    .bold()
+            }
+            Spacer()
+            Text(label)
+            Spacer()
+
         }
-        .frame(width: 170, height: 210)
-        .background(color)
+        .foregroundColor(.white)
+
+        .frame(width: 180, height: 180)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [Color.ui.gradientGreen1, Color.ui.gradientGreen2]), startPoint: .leading, endPoint: .trailing)
+            )
         .cornerRadius(CGFloat(15))
 
     }

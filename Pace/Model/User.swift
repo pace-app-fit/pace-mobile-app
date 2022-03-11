@@ -33,3 +33,16 @@ struct LoginUser: Encodable {
     var email: String
     var password: String
 }
+
+struct UserStat: Codable {
+    let currentYear: UserStatData
+}
+
+struct UserStatData: Codable {
+    let distance: Double
+    
+    var roundedDistance: String {
+        let round = round(distance * 10) / 10
+        return String(round)
+    }
+}

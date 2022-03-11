@@ -11,18 +11,35 @@ import URLImage
 struct DashboardView: View {
     @EnvironmentObject var auth: SessionStore
     @State var isShowingAccountDetails = false
-
+    @ObservedObject var social = SocialService()
+    var userId = UserDefaults.standard.string(forKey: "userId")
+    
     var body: some View {
         NavigationView {
-            ScrollView() {
-//            WeatherCard()
-            Text("Dashboard under construction...")
-                .bold()
-                .padding(.top, 250)
-    
-            
+            ScrollView {
+                WeatherCard()
+
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                      }
+                    Text("This Year")
+                        .font(.largeTitle)
+                        .bold()
+                        .padding([.vertical], 15)
+                    if let stat = social.stat {
+                        HomeScreenStatViewComponent(value: stat.currentYear.roundedDistance, label: "Distance travelled")
+                    }
+                    
+                }
+                Text("What else would you like to see on the dashboard...")
+                    .foregroundColor(.secondary)
+                    .bold()
+                    .padding(.top, 20)
+                    .multilineTextAlignment(.center)
+                    .frame(width: 220)
         }
-            .padding(.horizontal)
+        .padding(.horizontal)
         .navigationBarTitleDisplayMode(.large)
         .sheet(isPresented: $isShowingAccountDetails) {
             AccountDetails(user: auth.user!)
@@ -39,6 +56,9 @@ struct DashboardView: View {
                     self.isShowingAccountDetails = true
                 }
         })
+        .onAppear{
+            social.getUserStats(userId: userId!)
+        }
       
         }
     }

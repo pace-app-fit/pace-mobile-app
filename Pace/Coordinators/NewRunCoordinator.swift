@@ -148,25 +148,6 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
         self.distance = d * 0.001
     }
     
-    func getCity(for location: CLLocation) {
-            
-            let geocoder = CLGeocoder()
-            geocoder.reverseGeocodeLocation(location) { placemarks, error in
-                
-                guard error == nil else {
-                    print("*** Error in \(#function): \(error!.localizedDescription)")
-                    return
-                }
-                
-                guard let placemark = placemarks?[0] else {
-                    print("*** Error in \(#function): placemark is nil")
-                    return
-                }
-                
-                if let city = placemark.locality {
-                    self.city = city
-                }
-            }
-        }
+    
     
 }
