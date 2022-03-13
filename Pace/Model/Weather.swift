@@ -27,12 +27,12 @@ struct WeatherDetails: Codable, Hashable {
     let temp, feelsLike: Double
     let pressure, humidity: Int
     let dewPoint: Double
-    let uvi, clouds, visibility: Int
+    let clouds, visibility: Int
     let windSpeed: Double
     let windDeg: Int
     let windGust: Double
     let weatherElement: WeatherElementDB
-    let pop: Double
+    let pop, uvi: Double
 
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp

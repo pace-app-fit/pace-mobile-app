@@ -106,7 +106,7 @@ class NewRunCoordinator: NSObject, MKMapViewDelegate, CLLocationManagerDelegate,
             
             if(!hasFetchedWeather) {
                 print( String(format: "%f",location.coordinate.latitude))
-                weatherCLient.getWeather(lat: String(format: "%f",location.coordinate.latitude), long: String(format: "%f", location.coordinate.latitude) ) { weather in
+                weatherCLient.getWeather(lat: String(format: "%f",location.coordinate.latitude), long: String(format: "%f", location.coordinate.longitude) ) { weather in
                     self.currentWeather = weather.current
                     self.hasFetchedWeather = true
                 }

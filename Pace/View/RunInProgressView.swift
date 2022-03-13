@@ -15,6 +15,7 @@ struct RunInProgressView: View {
     @State var showingAlert = false
     @State var error = ""
     @Environment(\.presentationMode) var presentationMode
+    @State var loading = false
     
     @State private var defaultRegion = MKCoordinateRegion(
         // Apple Park
@@ -43,130 +44,138 @@ struct RunInProgressView: View {
     }
     
     func formatPace(speed: Double) -> String {
+        var pace = speed * 16.66
         return String(format: "%.2f", speed*16.66)
     }
     
     
     var body: some View {
         NavigationView {
-            GeometryReader { geo in
-                VStack {
-                    NewRunMapView(region: locationCoordinator.region ?? defaultRegion, lineCoordinates: locationCoordinator.lineCoordinates)
-                        .frame(height: 400)
-                    HStack(spacing: 15) {
-                        VStack(alignment: .center) {
-                            Text(formatDistance(distance: locationCoordinator.distance))
-                                .font(.largeTitle)
-                                .italic()
-                                .bold()
-                            Text("Distance")
-                                .foregroundColor(.secondary)
-                                .font(.headline)
-                                
-                        }.padding(.bottom, 0)
-                        Divider()
-                        VStack(alignment: .center) {
-                           
-                            Text(formatPace(speed: locationCoordinator.speed))
-                                .font(.largeTitle)
-                                .italic()
-                                .bold()
-                            Text("Pace")
-                                .foregroundColor(.secondary)
-                                .font(.headline)
-                                
-                        }.padding(.bottom, 0)
-                    }
-                    .frame( height: 120)
-                    Text(localTimer)
-                        .font(.system(size: 72))
-                        .bold()
-                        .italic()
-                    Text("Time")
-                        .font(.largeTitle)
-                        .foregroundColor(.secondary)
+            if(loading) {
+                ProgressView()
+            } else {
+                GeometryReader { geo in
                     VStack {
-                        if timer.mode == .stopped {
-                            Button(action: {
-                                timer.start()
-                                locationCoordinator.start()
-
-                            }, label: {
-                                Text("Start Run")
-                            })
-                            .modifier(ButtonModifier())
-                            .frame(width: geo.size.width * 0.5)
-                        } else if timer.mode == .running {
-                            Button(action: {
-                                timer.pause()
-                            }, label: {
-                                Text("Pause Run")
-                            })
-                            .modifier(ButtonModifier())
-                            .frame(width: geo.size.width * 0.5)
-
-                        } else {
-                            VStack {
-                                Spacer()
-                                Button(action: {
-                                    timer.stop()
-
-                                    do {
-                                        try locationCoordinator.stop() {(res) in
-                                            switch res {
-                                            case .failure(let err):
-                                                    self.error = err.message
-                                                    self.showingAlert = true
-                                                
-                                            case .success(let run):
-                                                presentationMode.wrappedValue.dismiss()
-                                            }
-                                        }
-                                    } catch {
-                                        self.error = error.localizedDescription
-                                        self.showingAlert = true
-                                    }
-                                }, label: {
-                                    Text("Stop Run")
-                                })
-                                
-                                
-                                .modifier(ButtonModifier())
-                                .frame(width: geo.size.width * 0.5)
+                        NewRunMapView(region: locationCoordinator.region ?? defaultRegion, lineCoordinates: locationCoordinator.lineCoordinates)
+                            .frame(height: 400)
+                        HStack(spacing: 15) {
+                            VStack(alignment: .center) {
+                                Text(formatDistance(distance: locationCoordinator.distance))
+                                    .font(.largeTitle)
+                                    .italic()
+                                    .bold()
+                                Text("Distance")
+                                    .foregroundColor(.secondary)
+                                    .font(.headline)
+                                    
+                            }.padding(.bottom, 0)
+                            Divider()
+                            VStack(alignment: .center) {
                                
-                                Spacer()
-                                
+                                Text(formatPace(speed: locationCoordinator.speed))
+                                    .font(.largeTitle)
+                                    .italic()
+                                    .bold()
+                                Text("Pace")
+                                    .foregroundColor(.secondary)
+                                    .font(.headline)
+                                    
+                            }.padding(.bottom, 0)
+                        }
+                        .frame( height: 120)
+                        Text(localTimer)
+                            .font(.system(size: 72))
+                            .bold()
+                            .italic()
+                        Text("Time")
+                            .font(.largeTitle)
+                            .foregroundColor(.secondary)
+                        VStack {
+                            if timer.mode == .stopped {
                                 Button(action: {
                                     timer.start()
+                                    locationCoordinator.start()
+
                                 }, label: {
-                                    Text("Resume Run")
+                                    Text("Start Run")
                                 })
-                                
-                                .modifier(ButtonModifier(backgroundColor: Color.blue))
+                                .modifier(ButtonModifier())
+                                .frame(width: geo.size.width * 0.5)
+                            } else if timer.mode == .running {
+                                Button(action: {
+                                    timer.pause()
+                                }, label: {
+                                    Text("Pause Run")
+                                })
+                                .modifier(ButtonModifier())
                                 .frame(width: geo.size.width * 0.5)
 
-                                Spacer()
+                            } else {
+                                VStack {
+                                    Spacer()
+                                    Button(action: {
+                                        timer.stop()
+
+                                        do {
+                                            self.loading = true
+                                            try locationCoordinator.stop() {(res) in
+                                                switch res {
+                                                case .failure(let err):
+                                                        self.error = err.message
+                                                        self.showingAlert = true
+                                                    self.loading = false
+                                                    
+                                                case .success(_):
+                                                    self.loading = false
+                                                    presentationMode.wrappedValue.dismiss()
+                                                }
+                                            }
+                                        } catch {
+                                            self.error = error.localizedDescription
+                                            self.showingAlert = true
+                                        }
+                                    }, label: {
+                                        Text("Stop Run")
+                                    })
+                                    
+                                    
+                                    .modifier(ButtonModifier())
+                                    .frame(width: geo.size.width * 0.5)
+                                   
+                                    Spacer()
+                                    
+                                    Button(action: {
+                                        timer.start()
+                                    }, label: {
+                                        Text("Resume Run")
+                                    })
+                                    
+                                    .modifier(ButtonModifier(backgroundColor: Color.blue))
+                                    .frame(width: geo.size.width * 0.5)
+
+                                    Spacer()
+                                }
+                                .frame(height: geo.size.height * 0.3)
+                               
+                                
                             }
-                            .frame(height: geo.size.height * 0.3)
-                           
-                            
                         }
+                       
+                        
+                       
+                        Spacer()
                     }
-                   
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Error"), message: Text(error), dismissButton: Alert.Button.default(Text("Ok")) {
+                            presentationMode.wrappedValue.dismiss()
+                        })
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
+                    .scaledToFit()
                     
-                   
-                    Spacer()
                 }
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Error"), message: Text(error), dismissButton: Alert.Button.default(Text("Ok")) {
-                        presentationMode.wrappedValue.dismiss()
-                    })
-                }
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-                .scaledToFit()
-                
+                .edgesIgnoringSafeArea(.all)
             }
-            .edgesIgnoringSafeArea(.all)
             
         }
        

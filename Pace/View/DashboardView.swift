@@ -14,6 +14,14 @@ struct DashboardView: View {
     @ObservedObject var social = SocialService()
     var userId = UserDefaults.standard.string(forKey: "userId")
     
+    func getFirstName() -> String {
+        if let user = auth.user {
+            let arr = user.name.components(separatedBy: " ")
+            return  String(arr[0] )
+        }
+        return "Runner"
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -44,7 +52,7 @@ struct DashboardView: View {
         .sheet(isPresented: $isShowingAccountDetails) {
             AccountDetails(user: auth.user!)
         }
-        .navigationTitle(Text("Dashboard"))
+        .navigationTitle(Text(String("Hi, \(getFirstName())")))
         .navigationBarLargeTitleItems(trailing: URLImage(url: URL(string: auth.user!.profileImage)!) { image in
             image
                 .resizable()
@@ -61,13 +69,6 @@ struct DashboardView: View {
         }
       
         }
-    }
-}
-
-
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        DashboardView()
     }
 }
 

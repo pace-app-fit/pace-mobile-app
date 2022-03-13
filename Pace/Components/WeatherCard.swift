@@ -37,7 +37,6 @@ struct WeatherCard: View {
                         .foregroundColor(.white)
                 }
                 Spacer()
-                Spacer()
                 VStack {
                     HStack {
                         VStack {
@@ -91,6 +90,7 @@ struct WeatherCard: View {
                 Spacer()
             } else {
                 Text("No Weather data...")
+                    .foregroundColor(.white)
             }
         }
         .padding(.vertical, 20)
