@@ -17,9 +17,9 @@ struct FitnessCardView: View {
 
     
     var body: some View {
-        NavigationLink(destination: WorkoutDetailsView(workout: workout, controller: PlayerViewController(videoURL: URL(string: workout.videoURL)))) {
+        NavigationLink(destination: WorkoutDetailsView(workout: workout, controller: PlayerViewController(videoURL: URL(string: workout.videoUrl)))) {
             VStack(alignment: .leading) {
-                URLImage(url: workout.heroURL!) { image in
+                URLImage(url: URL(string: workout.thumbnail)!) { image in
                     image
                         .resizable()
                         .frame(idealWidth: 400, idealHeight: 300)
@@ -48,30 +48,30 @@ struct FitnessCardView: View {
                     .accentColor(Color.primary)
                     
                 
-                Text(workout.createdBy)
-                    .font(.title)
-                    .foregroundColor(Color.pink)
-                    .bold()
+//                Text(workout.createdBy)
+//                    .font(.title)
+//                    .foregroundColor(Color.pink)
+//                    .bold()
                 HStack {
                     HStack {
                         Image("clock")
-                        Text(workout.time)
+                        Text(String(workout.time))
                             .italic()
                     }
                     
-                    HStack {
-                        Image("equip")
-                        Text(workout.equipment)
-                            .italic()
-                            
-                    }
+//                    HStack {
+//                        Image("equip")
+//                        Text(workout.equipment)
+//                            .italic()
+//                            
+//                    }
                     
                 }
                 
                 .foregroundColor(.secondary)
                 .font(.headline)
                 
-                Text(workout.workoutDescription)
+                Text(workout.description)
                     .font(.body)
                     .foregroundColor(.secondary)
                     .lineLimit(2)

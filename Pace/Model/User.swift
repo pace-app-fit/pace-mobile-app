@@ -28,6 +28,10 @@ struct NewUser: Codable, Hashable {
     var email: String
 }
 
+struct MiniUser: Codable, Hashable, Equatable {
+    let userName: String
+    let profileImage: String
+}
 
 struct LoginUser: Encodable {
     var email: String

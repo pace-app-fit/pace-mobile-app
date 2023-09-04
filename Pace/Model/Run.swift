@@ -13,10 +13,7 @@ struct Run: Decodable, Hashable, Equatable {
     
     let user: MiniUser
     
-    struct MiniUser: Codable, Hashable, Equatable {
-        let userName: String
-        let profileImage: String
-    }
+   
     
 //    enum CodingKeys: String, CodingKey {
 //        case name, id, userId, createdAt, coordinates, time, distance, averagePace, averageSpeed, totalElevation, weather, user

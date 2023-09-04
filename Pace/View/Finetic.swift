@@ -9,15 +9,20 @@ import SwiftUI
 import AVKit
 
 struct Finetic: View {
+    @ObservedObject var workoutService = WorkoutService()
+    
     @ViewBuilder
     var body: some View {
         NavigationView {
             ScrollView {
-                Text("Screen under construction...")
-                    .bold()
-                    .padding(.top, 250)
+                ForEach(workoutService.workouts, id: \.self) { workout in
+                    FitnessCardView(workout: workout)
+                }
             }
             .navigationTitle("Pace")
+                .onAppear {
+                    workoutService.getWorkouts()
+                }
         }
     }
 }

@@ -9,25 +9,15 @@ import Foundation
 
 // MARK: - Workout
 struct Workout: Codable, Identifiable, Hashable {
-    var id = UUID()
-    var name, createdBy: String
-    var videoURL: String
-    var equipment, difficulty, time, workoutDescription: String
-    var heroimg: String
-    
-    var heroURL: URL? {
-        URL(string: heroimg)
-    }
-    
-
-    enum CodingKeys: String, CodingKey {
-        case name, createdBy
-        case videoURL = "videoUrl"
-        case equipment, difficulty, time
-        case workoutDescription
-        case heroimg = "heroURL"
-    }
-    
+    var id, userId: String
+    var name: String
+    let user: MiniUser
+    var videoUrl: String
+    var difficulty, description: String
+    var time: Int
+    var thumbnail: String
+    var createdAt, updatedAt: String
+//    var equipment: String
 }
 
 

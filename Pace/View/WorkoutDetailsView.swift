@@ -16,14 +16,12 @@ struct WorkoutDetailsView: View {
   
     
     var body: some View {
-         
-        GeometryReader{geo in
             VStack{
-                URLImage(url: workout.heroURL!){image in
+                URLImage(url: URL(string: workout.thumbnail)!){image in
                     image
                         .resizable()
                         .scaledToFill()
-                        .frame( height: CGFloat(geo.size.height * 0.6))
+                        .frame( height: 400)
                         .edgesIgnoringSafeArea(.top)
                         .clipped()
 //                            .overlay(
@@ -41,7 +39,7 @@ struct WorkoutDetailsView: View {
                         .font(.largeTitle)
                         .bold()
                     
-                    Text(workout.createdBy)
+                    Text(workout.user.userName)
                         .font(.title)
                         .foregroundColor(Color.pink)
                         .bold()
@@ -50,15 +48,15 @@ struct WorkoutDetailsView: View {
                     HStack(spacing: 20) {
                         HStack {
                             Image("clock")
-                            Text(workout.time)
+                            Text(String(workout.time))
                                 .italic()
                         }
                         
-                        HStack {
-                            Image("equip")
-                            Text(workout.equipment)
-                                .italic()
-                        }
+//                        HStack {
+//                            Image("equip")
+//                            Text(workout.equipment)
+//                                .italic()
+//                        }
                         
                         HStack {
                             Image("difficulty")
@@ -73,7 +71,7 @@ struct WorkoutDetailsView: View {
                     
                     Divider()
                     
-                    Text(workout.workoutDescription)
+                    Text(workout.description)
                         .font(.body)
                         .foregroundColor(.secondary)
                         .frame(width: 350)
@@ -94,6 +92,7 @@ struct WorkoutDetailsView: View {
                 }
                 .clipped()
                 .padding(.horizontal)
+                
                     
             }
             .edgesIgnoringSafeArea(.top)
@@ -105,7 +104,7 @@ struct WorkoutDetailsView: View {
 //                    .edgesIgnoringSafeArea(.all)
 //            }
         
-            }
+            
     }
     
 }
@@ -121,12 +120,5 @@ struct FullScreenModalView: View {
     }
 }
 
-//struct WorkoutDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WorkoutDetailsView(workout: devWorkout)
-//    }
-//}
-
-var devWorkout = Workout( name: "Guided Yoga", createdBy: "Aleesha Gettis", videoURL: "https://res.cloudinary.com/dnmlpwow2/video/upload/v1612224779/RPReplay_Final1612222370_up45oi.mov", equipment: "None", difficulty: "Beginner", time: "7 min", workoutDescription: "Guided Yoga to clear your mind and relax the body. Get your session in!", heroimg: "https://res.cloudinary.com/dnmlpwow2/image/upload/v1615055635/yoga2_2x_rksqsz.png" )
 
 

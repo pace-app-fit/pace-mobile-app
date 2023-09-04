@@ -61,6 +61,16 @@ struct RunDetailsView: View {
                 MapView(track: track, allowInteraction: true)
                     .frame(height: 270)
                     .cornerRadius(15)
+                if let weather = track.weather {
+                    NavigationLink(
+                        destination:WeatherDetailsScreen(weather: weather),
+                        label: {
+                            Text("View weather details")
+                                .foregroundColor(.secondary)
+                                .bold()
+                        })
+                        .padding(.horizontal)
+                }
 //                Text("Splits")
 //                    .font(.title)
 //                    .padding(.vertical)
