@@ -85,7 +85,7 @@ struct RunDetailsView: View {
         }
         .padding(.horizontal)
         .navigationTitle("Analysis")
-        .navigationBarItems(trailing: track.userId == auth.user?.id ? Button(action: {
+        .navigationBarItems(trailing: track.user.id == auth.user?.id ? Button(action: {
             runs.deleteRun(runId: track.id) { res in
                 print(res)
                 self.alertMsg = res

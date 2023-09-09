@@ -69,6 +69,7 @@ class RunsService: ApiHost, ObservableObject {
                             print(error.localizedDescription)
                         }
                     } else {
+                        print("trying to decode run")
                         let run = try decoder.decode(Run.self, from: response.data!)
                         completion(Result.success(run))
                     }
@@ -97,7 +98,7 @@ class RunsService: ApiHost, ObservableObject {
     
     func getFeed() {
         loading = true
-        AF.request("\(host)/runs",
+        AF.request("\(host)/runs/all",
                    method: .get,
                    headers: ["Authorization": "Bearer \(token!)"]
         ).responseDecodable(of: [Run].self) { (response) in
@@ -109,7 +110,7 @@ class RunsService: ApiHost, ObservableObject {
         }
     }
     
-    func deleteRun(runId: String, onSucess: @escaping (String) -> Void) {
+    func deleteRun(runId: Int, onSucess: @escaping (String) -> Void) {
         AF.request("\(host)/runs/\(runId)",
                    method: .delete,
                    headers: ["Authorization": "Bearer \(token!)"]

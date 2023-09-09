@@ -3,13 +3,13 @@ import MapKit
 
 // MARK: - WelcomeElement
 struct Run: Decodable, Hashable, Equatable {
-    let name, id, userId, createdAt: String
+    let id: Int
+    let name, createdAt: String
     let coordinates: [Coordinate]
     let distance, averagePace, averageSpeed: Double
     let time: Int
     let totalElevation: TotalElevation
     let weather: WeatherDetails?
-    let weatherId: String?
     
     let user: MiniUser
     

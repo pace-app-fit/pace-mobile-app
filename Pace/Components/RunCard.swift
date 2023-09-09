@@ -13,7 +13,7 @@ struct RunCard: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            NavigationLink(destination: UserProfileView(userId: track.userId)) {
+            NavigationLink(destination: UserProfileView(userId: track.user.id)) {
                 HStack {
                     URLImage(url: URL(string: track.user.profileImage)!) { image in
                         image

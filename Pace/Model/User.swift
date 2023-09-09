@@ -31,6 +31,7 @@ struct NewUser: Codable, Hashable {
 struct MiniUser: Codable, Hashable, Equatable {
     let userName: String
     let profileImage: String
+    let id: String
 }
 
 struct LoginUser: Encodable {
